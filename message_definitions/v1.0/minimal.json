@@ -1,0 +1,3225 @@
+{
+  "tag": "mavlink",
+  "children": [
+    {
+      "tag": "version",
+      "text": "3"
+    },
+    {
+      "tag": "enums",
+      "children": [
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "MAV_AUTOPILOT"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "Micro air vehicle / autopilot classes. This identifies the individual model."
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "0",
+                "name": "MAV_AUTOPILOT_GENERIC"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic autopilot, full support for everything"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "MAV_AUTOPILOT_RESERVED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Reserved for future use."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "2",
+                "name": "MAV_AUTOPILOT_SLUGS"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "SLUGS autopilot, http://slugsuav.soe.ucsc.edu"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "3",
+                "name": "MAV_AUTOPILOT_ARDUPILOTMEGA"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "ArduPilot - Plane/Copter/Rover/Sub/Tracker, https://ardupilot.org"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "4",
+                "name": "MAV_AUTOPILOT_OPENPILOT"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "OpenPilot, http://openpilot.org"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "5",
+                "name": "MAV_AUTOPILOT_GENERIC_WAYPOINTS_ONLY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic autopilot only supporting simple waypoints"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "6",
+                "name": "MAV_AUTOPILOT_GENERIC_WAYPOINTS_AND_SIMPLE_NAVIGATION_ONLY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic autopilot supporting waypoints and other simple navigation commands"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "7",
+                "name": "MAV_AUTOPILOT_GENERIC_MISSION_FULL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic autopilot supporting the full mission command set"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "8",
+                "name": "MAV_AUTOPILOT_INVALID"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "No valid autopilot, e.g. a GCS or other MAVLink component"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "9",
+                "name": "MAV_AUTOPILOT_PPZ"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "PPZ UAV - http://nongnu.org/paparazzi"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "10",
+                "name": "MAV_AUTOPILOT_UDB"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "UAV Dev Board"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "11",
+                "name": "MAV_AUTOPILOT_FP"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "FlexiPilot"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "12",
+                "name": "MAV_AUTOPILOT_PX4"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "PX4 Autopilot - http://px4.io/"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "13",
+                "name": "MAV_AUTOPILOT_SMACCMPILOT"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "SMACCMPilot - http://smaccmpilot.org"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "14",
+                "name": "MAV_AUTOPILOT_AUTOQUAD"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "AutoQuad -- http://autoquad.org"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "15",
+                "name": "MAV_AUTOPILOT_ARMAZILA"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Armazila -- http://armazila.com"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "16",
+                "name": "MAV_AUTOPILOT_AEROB"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Aerob -- http://aerob.ru"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "17",
+                "name": "MAV_AUTOPILOT_ASLUAV"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "ASLUAV autopilot -- http://www.asl.ethz.ch"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "18",
+                "name": "MAV_AUTOPILOT_SMARTAP"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "SmartAP Autopilot - http://sky-drones.com"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "19",
+                "name": "MAV_AUTOPILOT_AIRRAILS"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "AirRails - http://uaventure.com"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "20",
+                "name": "MAV_AUTOPILOT_REFLEX"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Fusion Reflex - https://fusion.engineering"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "MAV_TYPE"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "MAVLINK component type reported in HEARTBEAT message. Flight controllers must report the type of the vehicle on which they are mounted (e.g. MAV_TYPE_OCTOROTOR). All other components must report a value appropriate for their type (e.g. a camera must use MAV_TYPE_CAMERA)."
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "0",
+                "name": "MAV_TYPE_GENERIC"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic micro air vehicle"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "MAV_TYPE_FIXED_WING"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Fixed wing aircraft."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "2",
+                "name": "MAV_TYPE_QUADROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Quadrotor"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "3",
+                "name": "MAV_TYPE_COAXIAL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Coaxial helicopter"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "4",
+                "name": "MAV_TYPE_HELICOPTER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Normal helicopter with tail rotor."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "5",
+                "name": "MAV_TYPE_ANTENNA_TRACKER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Ground installation"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "6",
+                "name": "MAV_TYPE_GCS"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Operator control unit / ground control station"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "7",
+                "name": "MAV_TYPE_AIRSHIP"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Airship, controlled"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "8",
+                "name": "MAV_TYPE_FREE_BALLOON"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Free balloon, uncontrolled"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "9",
+                "name": "MAV_TYPE_ROCKET"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Rocket"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "10",
+                "name": "MAV_TYPE_GROUND_ROVER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Ground rover"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "11",
+                "name": "MAV_TYPE_SURFACE_BOAT"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Surface vessel, boat, ship"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "12",
+                "name": "MAV_TYPE_SUBMARINE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Submarine"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "13",
+                "name": "MAV_TYPE_HEXAROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Hexarotor"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "14",
+                "name": "MAV_TYPE_OCTOROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Octorotor"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "15",
+                "name": "MAV_TYPE_TRICOPTER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Tricopter"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "16",
+                "name": "MAV_TYPE_FLAPPING_WING"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Flapping wing"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "17",
+                "name": "MAV_TYPE_KITE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Kite"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "18",
+                "name": "MAV_TYPE_ONBOARD_CONTROLLER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Onboard companion controller"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "19",
+                "name": "MAV_TYPE_VTOL_TAILSITTER_DUOROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Two-rotor Tailsitter VTOL that additionally uses control surfaces in vertical operation. Note, value previously named MAV_TYPE_VTOL_DUOROTOR."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "20",
+                "name": "MAV_TYPE_VTOL_TAILSITTER_QUADROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Quad-rotor Tailsitter VTOL using a V-shaped quad config in vertical operation. Note: value previously named MAV_TYPE_VTOL_QUADROTOR."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "21",
+                "name": "MAV_TYPE_VTOL_TILTROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Tiltrotor VTOL. Fuselage and wings stay (nominally) horizontal in all flight phases. It able to tilt (some) rotors to provide thrust in cruise flight."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "22",
+                "name": "MAV_TYPE_VTOL_FIXEDROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "VTOL with separate fixed rotors for hover and cruise flight. Fuselage and wings stay (nominally) horizontal in all flight phases."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "23",
+                "name": "MAV_TYPE_VTOL_TAILSITTER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Tailsitter VTOL. Fuselage and wings orientation changes depending on flight phase: vertical for hover, horizontal for cruise. Use more specific VTOL MAV_TYPE_VTOL_TAILSITTER_DUOROTOR or MAV_TYPE_VTOL_TAILSITTER_QUADROTOR if appropriate."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "24",
+                "name": "MAV_TYPE_VTOL_TILTWING"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Tiltwing VTOL. Fuselage stays horizontal in all flight phases. The whole wing, along with any attached engine, can tilt between vertical and horizontal mode."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "25",
+                "name": "MAV_TYPE_VTOL_RESERVED5"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "VTOL reserved 5"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "26",
+                "name": "MAV_TYPE_GIMBAL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "27",
+                "name": "MAV_TYPE_ADSB"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "ADSB system"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "28",
+                "name": "MAV_TYPE_PARAFOIL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Steerable, nonrigid airfoil"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "29",
+                "name": "MAV_TYPE_DODECAROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Dodecarotor"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "30",
+                "name": "MAV_TYPE_CAMERA"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "31",
+                "name": "MAV_TYPE_CHARGING_STATION"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Charging station"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "32",
+                "name": "MAV_TYPE_FLARM"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "FLARM collision avoidance system"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "33",
+                "name": "MAV_TYPE_SERVO"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "34",
+                "name": "MAV_TYPE_ODID"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Open Drone ID. See https://mavlink.io/en/services/opendroneid.html."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "35",
+                "name": "MAV_TYPE_DECAROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Decarotor"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "36",
+                "name": "MAV_TYPE_BATTERY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Battery"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "37",
+                "name": "MAV_TYPE_PARACHUTE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Parachute"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "38",
+                "name": "MAV_TYPE_LOG"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Log"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "39",
+                "name": "MAV_TYPE_OSD"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "OSD"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "40",
+                "name": "MAV_TYPE_IMU"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "IMU"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "41",
+                "name": "MAV_TYPE_GPS"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "GPS"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "42",
+                "name": "MAV_TYPE_WINCH"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Winch"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "43",
+                "name": "MAV_TYPE_GENERIC_MULTIROTOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic multirotor that does not fit into a specific type or whose type is unknown"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "44",
+                "name": "MAV_TYPE_ILLUMINATOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Illuminator. An illuminator is a light source that is used for lighting up dark areas external to the system: e.g. a torch or searchlight (as opposed to a light source for illuminating the system itself, e.g. an indicator light)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "45",
+                "name": "MAV_TYPE_SPACECRAFT_ORBITER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Orbiter spacecraft. Includes satellites orbiting terrestrial and extra-terrestrial bodies. Follows NASA Spacecraft Classification."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "46",
+                "name": "MAV_TYPE_GROUND_QUADRUPED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "A generic four-legged ground vehicle (e.g., a robot dog)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "47",
+                "name": "MAV_TYPE_VTOL_GYRODYNE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "VTOL hybrid of helicopter and autogyro. It has a main rotor for lift and separate propellers for forward flight. The rotor must be powered for hover but can autorotate in cruise flight. See: https://en.wikipedia.org/wiki/Gyrodyne"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "48",
+                "name": "MAV_TYPE_GRIPPER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gripper"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "49",
+                "name": "MAV_TYPE_RADIO"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Radio"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "MAV_MODE_FLAG",
+            "bitmask": "true"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "These flags encode the MAV mode, see MAV_MODE enum for useful combinations."
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "128",
+                "name": "MAV_MODE_FLAG_SAFETY_ARMED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignore when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "64",
+                "name": "MAV_MODE_FLAG_MANUAL_INPUT_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b01000000 remote control input is enabled."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "32",
+                "name": "MAV_MODE_FLAG_HIL_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b00100000 hardware in the loop simulation. All motors / actuators are blocked, but internal software is full operational."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "16",
+                "name": "MAV_MODE_FLAG_STABILIZE_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b00010000 system stabilizes electronically its attitude (and optionally position). It needs however further control inputs to move around."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "8",
+                "name": "MAV_MODE_FLAG_GUIDED_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b00001000 guided mode enabled, system flies waypoints / mission items."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "4",
+                "name": "MAV_MODE_FLAG_AUTO_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b00000100 autonomous mode enabled, system finds its own goal positions. Guided flag can be set or not, depends on the actual implementation."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "2",
+                "name": "MAV_MODE_FLAG_TEST_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b00000010 system has a test mode enabled. This flag is intended for temporary system tests and should not be used for stable implementations."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "MAV_MODE_FLAG_CUSTOM_MODE_ENABLED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "0b00000001 system-specific custom mode is enabled. When using this flag to enable a custom mode all other flags should be ignored."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "MAV_MODE_FLAG_DECODE_POSITION",
+            "bitmask": "true"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "These values encode the bit positions of the decode position. These values can be used to read the value of a flag bit by combining the base_mode variable with AND with the flag position value. The result will be either 0 or 1, depending on if the flag is set or not."
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "128",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_SAFETY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "First bit:  10000000"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "64",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_MANUAL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Second bit: 01000000"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "32",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_HIL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Third bit:  00100000"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "16",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_STABILIZE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Fourth bit: 00010000"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "8",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_GUIDED"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Fifth bit:  00001000"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "4",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_AUTO"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Sixth bit:   00000100"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "2",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_TEST"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Seventh bit: 00000010"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "MAV_MODE_FLAG_DECODE_POSITION_CUSTOM_MODE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Eighth bit: 00000001"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "MAV_STATE"
+          },
+          "children": [
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "0",
+                "name": "MAV_STATE_UNINIT"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Uninitialized system, state is unknown."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "MAV_STATE_BOOT"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is booting up."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "2",
+                "name": "MAV_STATE_CALIBRATING"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is calibrating and not flight-ready."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "3",
+                "name": "MAV_STATE_STANDBY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is grounded and on standby. It can be launched any time."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "4",
+                "name": "MAV_STATE_ACTIVE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is active and might be already airborne. Motors are engaged."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "5",
+                "name": "MAV_STATE_CRITICAL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is in a non-normal flight mode (failsafe). It can however still navigate."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "6",
+                "name": "MAV_STATE_EMERGENCY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is in a non-normal flight mode (failsafe). It lost control over parts or over the whole airframe. It is in mayday and going down."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "7",
+                "name": "MAV_STATE_POWEROFF"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System just initialized its power-down sequence, will shut down now."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "8",
+                "name": "MAV_STATE_FLIGHT_TERMINATION"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System is terminating itself (failsafe or commanded)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "MAV_COMPONENT"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "Legacy component ID values for particular types of hardware/software that might make up a MAVLink system (autopilot, cameras, servos, avoidance systems etc.).\n      \n        Components are not required or expected to use IDs with names that correspond to their type or function, but may choose to do so.\n        Using an ID that matches the type may slightly reduce the chances of component id clashes, as, for historical reasons, it is less likely to be used by some other type of component.\n        System integration will still need to ensure that all components have unique IDs.\n\n        Component IDs are used for addressing messages to a particular component within a system.\n        A component can use any unique ID between 1 and 255 (MAV_COMP_ID_ALL value is the broadcast address, used to send to all components).\n        \n        Historically component ID were also used for identifying the type of component.\n        New code must not use component IDs to infer the component type, but instead check the MAV_TYPE in the HEARTBEAT message!"
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "0",
+                "name": "MAV_COMP_ID_ALL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Target id (target_component) used to broadcast messages to all components of the receiving system. Components should attempt to process messages with this component ID and forward to components on any other interfaces. Note: This is not a valid *source* component id for a message."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "MAV_COMP_ID_AUTOPILOT1"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "System flight controller component (\"autopilot\"). Only one autopilot is expected in a particular system."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "25",
+                "name": "MAV_COMP_ID_USER1"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "26",
+                "name": "MAV_COMP_ID_USER2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "27",
+                "name": "MAV_COMP_ID_USER3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "28",
+                "name": "MAV_COMP_ID_USER4"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "29",
+                "name": "MAV_COMP_ID_USER5"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "30",
+                "name": "MAV_COMP_ID_USER6"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "31",
+                "name": "MAV_COMP_ID_USER7"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "32",
+                "name": "MAV_COMP_ID_USER8"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "33",
+                "name": "MAV_COMP_ID_USER9"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "34",
+                "name": "MAV_COMP_ID_USER10"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "35",
+                "name": "MAV_COMP_ID_USER11"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "36",
+                "name": "MAV_COMP_ID_USER12"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "37",
+                "name": "MAV_COMP_ID_USER13"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "38",
+                "name": "MAV_COMP_ID_USER14"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "39",
+                "name": "MAV_COMP_ID_USER15"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "40",
+                "name": "MAV_COMP_ID_USER16"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "41",
+                "name": "MAV_COMP_ID_USER17"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "42",
+                "name": "MAV_COMP_ID_USER18"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "43",
+                "name": "MAV_COMP_ID_USER19"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "44",
+                "name": "MAV_COMP_ID_USER20"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "45",
+                "name": "MAV_COMP_ID_USER21"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "46",
+                "name": "MAV_COMP_ID_USER22"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "47",
+                "name": "MAV_COMP_ID_USER23"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "48",
+                "name": "MAV_COMP_ID_USER24"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "49",
+                "name": "MAV_COMP_ID_USER25"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "50",
+                "name": "MAV_COMP_ID_USER26"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "51",
+                "name": "MAV_COMP_ID_USER27"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "52",
+                "name": "MAV_COMP_ID_USER28"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "53",
+                "name": "MAV_COMP_ID_USER29"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "54",
+                "name": "MAV_COMP_ID_USER30"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "55",
+                "name": "MAV_COMP_ID_USER31"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "56",
+                "name": "MAV_COMP_ID_USER32"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "57",
+                "name": "MAV_COMP_ID_USER33"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "58",
+                "name": "MAV_COMP_ID_USER34"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "59",
+                "name": "MAV_COMP_ID_USER35"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "60",
+                "name": "MAV_COMP_ID_USER36"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "61",
+                "name": "MAV_COMP_ID_USER37"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "62",
+                "name": "MAV_COMP_ID_USER38"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "63",
+                "name": "MAV_COMP_ID_USER39"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "64",
+                "name": "MAV_COMP_ID_USER40"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "65",
+                "name": "MAV_COMP_ID_USER41"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "66",
+                "name": "MAV_COMP_ID_USER42"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "67",
+                "name": "MAV_COMP_ID_USER43"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "68",
+                "name": "MAV_COMP_ID_TELEMETRY_RADIO"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Telemetry radio (e.g. SiK radio, or other component that emits RADIO_STATUS messages)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "69",
+                "name": "MAV_COMP_ID_USER45"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "70",
+                "name": "MAV_COMP_ID_USER46"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "71",
+                "name": "MAV_COMP_ID_USER47"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "72",
+                "name": "MAV_COMP_ID_USER48"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "73",
+                "name": "MAV_COMP_ID_USER49"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "74",
+                "name": "MAV_COMP_ID_USER50"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "75",
+                "name": "MAV_COMP_ID_USER51"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "76",
+                "name": "MAV_COMP_ID_USER52"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "77",
+                "name": "MAV_COMP_ID_USER53"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "78",
+                "name": "MAV_COMP_ID_USER54"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "79",
+                "name": "MAV_COMP_ID_USER55"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "80",
+                "name": "MAV_COMP_ID_USER56"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "81",
+                "name": "MAV_COMP_ID_USER57"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "82",
+                "name": "MAV_COMP_ID_USER58"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "83",
+                "name": "MAV_COMP_ID_USER59"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "84",
+                "name": "MAV_COMP_ID_USER60"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "85",
+                "name": "MAV_COMP_ID_USER61"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "86",
+                "name": "MAV_COMP_ID_USER62"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "87",
+                "name": "MAV_COMP_ID_USER63"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "88",
+                "name": "MAV_COMP_ID_USER64"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "89",
+                "name": "MAV_COMP_ID_USER65"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "90",
+                "name": "MAV_COMP_ID_USER66"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "91",
+                "name": "MAV_COMP_ID_USER67"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "92",
+                "name": "MAV_COMP_ID_USER68"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "93",
+                "name": "MAV_COMP_ID_USER69"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "94",
+                "name": "MAV_COMP_ID_USER70"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "95",
+                "name": "MAV_COMP_ID_USER71"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "96",
+                "name": "MAV_COMP_ID_USER72"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "97",
+                "name": "MAV_COMP_ID_USER73"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "98",
+                "name": "MAV_COMP_ID_USER74"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "99",
+                "name": "MAV_COMP_ID_USER75"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Id for a component on privately managed MAVLink network. Can be used for any purpose but may not be published by components outside of the private network."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "100",
+                "name": "MAV_COMP_ID_CAMERA"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "101",
+                "name": "MAV_COMP_ID_CAMERA2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "102",
+                "name": "MAV_COMP_ID_CAMERA3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera #3."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "103",
+                "name": "MAV_COMP_ID_CAMERA4"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera #4."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "104",
+                "name": "MAV_COMP_ID_CAMERA5"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera #5."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "105",
+                "name": "MAV_COMP_ID_CAMERA6"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Camera #6."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "110",
+                "name": "MAV_COMP_ID_RADIO"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Radio #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "111",
+                "name": "MAV_COMP_ID_RADIO2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Radio #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "112",
+                "name": "MAV_COMP_ID_RADIO3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Radio #3."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "140",
+                "name": "MAV_COMP_ID_SERVO1"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "141",
+                "name": "MAV_COMP_ID_SERVO2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "142",
+                "name": "MAV_COMP_ID_SERVO3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #3."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "143",
+                "name": "MAV_COMP_ID_SERVO4"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #4."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "144",
+                "name": "MAV_COMP_ID_SERVO5"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #5."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "145",
+                "name": "MAV_COMP_ID_SERVO6"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #6."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "146",
+                "name": "MAV_COMP_ID_SERVO7"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #7."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "147",
+                "name": "MAV_COMP_ID_SERVO8"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #8."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "148",
+                "name": "MAV_COMP_ID_SERVO9"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #9."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "149",
+                "name": "MAV_COMP_ID_SERVO10"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #10."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "150",
+                "name": "MAV_COMP_ID_SERVO11"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #11."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "151",
+                "name": "MAV_COMP_ID_SERVO12"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #12."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "152",
+                "name": "MAV_COMP_ID_SERVO13"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #13."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "153",
+                "name": "MAV_COMP_ID_SERVO14"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Servo #14."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "154",
+                "name": "MAV_COMP_ID_GIMBAL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "155",
+                "name": "MAV_COMP_ID_LOG"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Logging component."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "156",
+                "name": "MAV_COMP_ID_ADSB"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Automatic Dependent Surveillance-Broadcast (ADS-B) component."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "157",
+                "name": "MAV_COMP_ID_OSD"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "On Screen Display (OSD) devices for video links."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "158",
+                "name": "MAV_COMP_ID_PERIPHERAL"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Generic autopilot peripheral component ID. Meant for devices that do not implement the parameter microservice."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "159",
+                "name": "MAV_COMP_ID_QX1_GIMBAL"
+              },
+              "children": [
+                {
+                  "tag": "deprecated",
+                  "attributes": {
+                    "since": "2018-11",
+                    "replaced_by": "MAV_COMP_ID_GIMBAL"
+                  },
+                  "text": "All gimbals should use MAV_COMP_ID_GIMBAL."
+                },
+                {
+                  "tag": "description",
+                  "text": "Gimbal ID for QX1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "160",
+                "name": "MAV_COMP_ID_FLARM"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "FLARM collision alert component."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "161",
+                "name": "MAV_COMP_ID_PARACHUTE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Parachute component."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "169",
+                "name": "MAV_COMP_ID_WINCH"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Winch component."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "171",
+                "name": "MAV_COMP_ID_GIMBAL2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "172",
+                "name": "MAV_COMP_ID_GIMBAL3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal #3."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "173",
+                "name": "MAV_COMP_ID_GIMBAL4"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal #4"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "174",
+                "name": "MAV_COMP_ID_GIMBAL5"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal #5."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "175",
+                "name": "MAV_COMP_ID_GIMBAL6"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Gimbal #6."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "180",
+                "name": "MAV_COMP_ID_BATTERY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Battery #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "181",
+                "name": "MAV_COMP_ID_BATTERY2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Battery #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "189",
+                "name": "MAV_COMP_ID_MAVCAN"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "CAN over MAVLink client."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "190",
+                "name": "MAV_COMP_ID_MISSIONPLANNER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that can generate/supply a mission flight plan (e.g. GCS or developer API)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "191",
+                "name": "MAV_COMP_ID_ONBOARD_COMPUTER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that lives on the onboard computer (companion computer) and has some generic functionalities, such as settings system parameters and monitoring the status of some processes that don't directly speak mavlink and so on."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "192",
+                "name": "MAV_COMP_ID_ONBOARD_COMPUTER2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that lives on the onboard computer (companion computer) and has some generic functionalities, such as settings system parameters and monitoring the status of some processes that don't directly speak mavlink and so on."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "193",
+                "name": "MAV_COMP_ID_ONBOARD_COMPUTER3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that lives on the onboard computer (companion computer) and has some generic functionalities, such as settings system parameters and monitoring the status of some processes that don't directly speak mavlink and so on."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "194",
+                "name": "MAV_COMP_ID_ONBOARD_COMPUTER4"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that lives on the onboard computer (companion computer) and has some generic functionalities, such as settings system parameters and monitoring the status of some processes that don't directly speak mavlink and so on."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "195",
+                "name": "MAV_COMP_ID_PATHPLANNER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that finds an optimal path between points based on a certain constraint (e.g. minimum snap, shortest path, cost, etc.)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "196",
+                "name": "MAV_COMP_ID_OBSTACLE_AVOIDANCE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that plans a collision free path between two points."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "197",
+                "name": "MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that provides position estimates using VIO techniques."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "198",
+                "name": "MAV_COMP_ID_PAIRING_MANAGER"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component that manages pairing of vehicle and GCS."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "200",
+                "name": "MAV_COMP_ID_IMU"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Inertial Measurement Unit (IMU) #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "201",
+                "name": "MAV_COMP_ID_IMU_2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Inertial Measurement Unit (IMU) #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "202",
+                "name": "MAV_COMP_ID_IMU_3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Inertial Measurement Unit (IMU) #3."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "220",
+                "name": "MAV_COMP_ID_GPS"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "GPS #1."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "221",
+                "name": "MAV_COMP_ID_GPS2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "GPS #2."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "236",
+                "name": "MAV_COMP_ID_ODID_TXRX_1"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Open Drone ID transmitter/receiver (Bluetooth/WiFi/Internet)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "237",
+                "name": "MAV_COMP_ID_ODID_TXRX_2"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Open Drone ID transmitter/receiver (Bluetooth/WiFi/Internet)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "238",
+                "name": "MAV_COMP_ID_ODID_TXRX_3"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Open Drone ID transmitter/receiver (Bluetooth/WiFi/Internet)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "240",
+                "name": "MAV_COMP_ID_UDP_BRIDGE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component to bridge MAVLink to UDP (i.e. from a UART)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "241",
+                "name": "MAV_COMP_ID_UART_BRIDGE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component to bridge to UART (i.e. from UDP)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "242",
+                "name": "MAV_COMP_ID_TUNNEL_NODE"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Component handling TUNNEL messages (e.g. vendor specific GUI of a component)."
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "243",
+                "name": "MAV_COMP_ID_ILLUMINATOR"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Illuminator"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "250",
+                "name": "MAV_COMP_ID_SYSTEM_CONTROL"
+              },
+              "children": [
+                {
+                  "tag": "deprecated",
+                  "attributes": {
+                    "since": "2018-11",
+                    "replaced_by": "MAV_COMP_ID_ALL"
+                  },
+                  "text": "System control does not require a separate component ID. Instead, system commands should be sent with target_component=MAV_COMP_ID_ALL allowing the target component to use any appropriate component id."
+                },
+                {
+                  "tag": "description",
+                  "text": "Deprecated, don't use. Component for handling system messages (e.g. to ARM, takeoff, etc.)."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "messages",
+      "children": [
+        {
+          "tag": "message",
+          "attributes": {
+            "id": "0",
+            "name": "HEARTBEAT"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "type",
+                "enum": "MAV_TYPE"
+              },
+              "text": "Vehicle or component type. For a flight controller component the vehicle type (quadrotor, helicopter, etc.). For other components the component type (e.g. camera, gimbal, etc.). This should be used in preference to component id for identifying the component type."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "autopilot",
+                "enum": "MAV_AUTOPILOT"
+              },
+              "text": "Autopilot type / class. Use MAV_AUTOPILOT_INVALID for components that are not flight controllers."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "base_mode",
+                "enum": "MAV_MODE_FLAG"
+              },
+              "text": "System mode bitmap."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint32_t",
+                "name": "custom_mode"
+              },
+              "text": "A bitfield for use for autopilot-specific flags"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "system_status",
+                "enum": "MAV_STATE"
+              },
+              "text": "System status flag."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t_mavlink_version",
+                "name": "mavlink_version"
+              },
+              "text": "MAVLink version, not writable by user, gets added by protocol because of magic data type: uint8_t_mavlink_version"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

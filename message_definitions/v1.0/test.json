@@ -1,0 +1,204 @@
+{
+  "tag": "mavlink",
+  "children": [
+    {
+      "tag": "version",
+      "text": "3"
+    },
+    {
+      "tag": "messages",
+      "children": [
+        {
+          "tag": "message",
+          "attributes": {
+            "id": "17000",
+            "name": "TEST_TYPES"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "Test all field types"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "char",
+                "name": "c"
+              },
+              "text": "char"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "char[10]",
+                "name": "s"
+              },
+              "text": "string"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "u8"
+              },
+              "text": "uint8_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint16_t",
+                "name": "u16"
+              },
+              "text": "uint16_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "print_format": "0x%08x",
+                "type": "uint32_t",
+                "name": "u32"
+              },
+              "text": "uint32_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint64_t",
+                "name": "u64"
+              },
+              "text": "uint64_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int8_t",
+                "name": "s8"
+              },
+              "text": "int8_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int16_t",
+                "name": "s16"
+              },
+              "text": "int16_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int32_t",
+                "name": "s32"
+              },
+              "text": "int32_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int64_t",
+                "name": "s64"
+              },
+              "text": "int64_t"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "f"
+              },
+              "text": "float"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "double",
+                "name": "d"
+              },
+              "text": "double"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t[3]",
+                "name": "u8_array"
+              },
+              "text": "uint8_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint16_t[3]",
+                "name": "u16_array"
+              },
+              "text": "uint16_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint32_t[3]",
+                "name": "u32_array"
+              },
+              "text": "uint32_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint64_t[3]",
+                "name": "u64_array"
+              },
+              "text": "uint64_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int8_t[3]",
+                "name": "s8_array"
+              },
+              "text": "int8_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int16_t[3]",
+                "name": "s16_array"
+              },
+              "text": "int16_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int32_t[3]",
+                "name": "s32_array"
+              },
+              "text": "int32_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int64_t[3]",
+                "name": "s64_array"
+              },
+              "text": "int64_t_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float[3]",
+                "name": "f_array"
+              },
+              "text": "float_array"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "double[3]",
+                "name": "d_array"
+              },
+              "text": "double_array"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

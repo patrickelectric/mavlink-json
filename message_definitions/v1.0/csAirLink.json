@@ -1,0 +1,104 @@
+{
+  "tag": "mavlink",
+  "children": [
+    {
+      "tag": "version",
+      "text": "3"
+    },
+    {
+      "tag": "enums",
+      "children": [
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "AIRLINK_AUTH_RESPONSE_TYPE"
+          },
+          "children": [
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "0",
+                "name": "AIRLINK_ERROR_LOGIN_OR_PASS"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Login or password error"
+                }
+              ]
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "value": "1",
+                "name": "AIRLINK_AUTH_OK"
+              },
+              "children": [
+                {
+                  "tag": "description",
+                  "text": "Auth successful"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "messages",
+      "children": [
+        {
+          "tag": "message",
+          "attributes": {
+            "id": "52000",
+            "name": "AIRLINK_AUTH"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "Authorization package"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "char[50]",
+                "name": "login"
+              },
+              "text": "Login"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "char[50]",
+                "name": "password"
+              },
+              "text": "Password"
+            }
+          ]
+        },
+        {
+          "tag": "message",
+          "attributes": {
+            "id": "52001",
+            "name": "AIRLINK_AUTH_RESPONSE"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "Response to the authorization request"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "resp_type",
+                "enum": "AIRLINK_AUTH_RESPONSE_TYPE"
+              },
+              "text": "Response type"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

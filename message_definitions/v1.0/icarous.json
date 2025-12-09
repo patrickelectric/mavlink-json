@@ -1,0 +1,272 @@
+{
+  "tag": "mavlink",
+  "children": [
+    {
+      "tag": "enums",
+      "children": [
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "ICAROUS_TRACK_BAND_TYPES"
+          },
+          "children": [
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_TRACK_BAND_TYPE_NONE",
+                "value": "0"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_TRACK_BAND_TYPE_NEAR",
+                "value": "1"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_TRACK_BAND_TYPE_RECOVERY",
+                "value": "2"
+              }
+            }
+          ]
+        },
+        {
+          "tag": "enum",
+          "attributes": {
+            "name": "ICAROUS_FMS_STATE"
+          },
+          "children": [
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_FMS_STATE_IDLE",
+                "value": "0"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_FMS_STATE_TAKEOFF",
+                "value": "1"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_FMS_STATE_CLIMB",
+                "value": "2"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_FMS_STATE_CRUISE",
+                "value": "3"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_FMS_STATE_APPROACH",
+                "value": "4"
+              }
+            },
+            {
+              "tag": "entry",
+              "attributes": {
+                "name": "ICAROUS_FMS_STATE_LAND",
+                "value": "5"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "messages",
+      "children": [
+        {
+          "tag": "message",
+          "attributes": {
+            "id": "42000",
+            "name": "ICAROUS_HEARTBEAT"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "ICAROUS heartbeat"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "status",
+                "enum": "ICAROUS_FMS_STATE"
+              },
+              "text": "See the FMS_STATE enum."
+            }
+          ]
+        },
+        {
+          "tag": "message",
+          "attributes": {
+            "id": "42001",
+            "name": "ICAROUS_KINEMATIC_BANDS"
+          },
+          "children": [
+            {
+              "tag": "description",
+              "text": "Kinematic multi bands (track) output from Daidalus"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "int8_t",
+                "name": "numBands"
+              },
+              "text": "Number of track bands"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "type1",
+                "enum": "ICAROUS_TRACK_BAND_TYPES"
+              },
+              "text": "See the TRACK_BAND_TYPES enum."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "min1",
+                "units": "deg"
+              },
+              "text": "min angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "max1",
+                "units": "deg"
+              },
+              "text": "max angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "type2",
+                "enum": "ICAROUS_TRACK_BAND_TYPES"
+              },
+              "text": "See the TRACK_BAND_TYPES enum."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "min2",
+                "units": "deg"
+              },
+              "text": "min angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "max2",
+                "units": "deg"
+              },
+              "text": "max angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "type3",
+                "enum": "ICAROUS_TRACK_BAND_TYPES"
+              },
+              "text": "See the TRACK_BAND_TYPES enum."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "min3",
+                "units": "deg"
+              },
+              "text": "min angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "max3",
+                "units": "deg"
+              },
+              "text": "max angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "type4",
+                "enum": "ICAROUS_TRACK_BAND_TYPES"
+              },
+              "text": "See the TRACK_BAND_TYPES enum."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "min4",
+                "units": "deg"
+              },
+              "text": "min angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "max4",
+                "units": "deg"
+              },
+              "text": "max angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "uint8_t",
+                "name": "type5",
+                "enum": "ICAROUS_TRACK_BAND_TYPES"
+              },
+              "text": "See the TRACK_BAND_TYPES enum."
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "min5",
+                "units": "deg"
+              },
+              "text": "min angle (degrees)"
+            },
+            {
+              "tag": "field",
+              "attributes": {
+                "type": "float",
+                "name": "max5",
+                "units": "deg"
+              },
+              "text": "max angle (degrees)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
