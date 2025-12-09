@@ -1,0 +1,52 @@
+name: Generate MAVLink JSON
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: "0 11 * * 1" # Every Monday at 8AM GMT-3
+  workflow_dispatch:
+
+jobs:
+  generate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Record date
+        id: metadata
+        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Clone MAVLink repository
+        run: |
+          git clone --depth 1 https://github.com/mavlink/mavlink.git /tmp/mavlink
+
+      - name: Generate MAVLink JSON
+        run: |
+          mkdir -p message_definitions/v1.0
+          for xml in /tmp/mavlink/message_definitions/v1.0/*.xml; do
+            base="$(basename "$xml" .xml)"
+            python3 xml2json.py "$xml" > "message_definitions/v1.0/${base}.json"
+          done
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update MAVLink JSON from ${{ steps.metadata.outputs.date }}"
+
+  keepalive-job:
+    name: Keepalive Workflow
+    if: ${{ always() }}
+    needs: generate-json
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          use_api: false
+
