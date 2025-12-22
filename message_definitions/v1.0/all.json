@@ -2367,19 +2367,19 @@
       "description": "Gripper actions.",
       "entries": [
         {
-          "name": "GRIPPER_ACTION_OPEN",
+          "name": "GRIPPER_ACTION_RELEASE",
           "value": 0,
-          "description": "Gripper commence open. Often used to release cargo."
+          "description": "Gripper release cargo."
         },
         {
-          "name": "GRIPPER_ACTION_CLOSE",
+          "name": "GRIPPER_ACTION_GRAB",
           "value": 1,
-          "description": "Gripper commence close. Often used to grab onto cargo."
+          "description": "Gripper grab onto cargo."
         },
         {
-          "name": "GRIPPER_ACTION_STOP",
+          "name": "GRIPPER_ACTION_HOLD",
           "value": 2,
-          "description": "Gripper stop (maintain current grip position)."
+          "description": "Gripper hold current grip state/position."
         }
       ]
     },
@@ -18228,7 +18228,7 @@
     {
       "name": "SYS_STATUS",
       "id": 1,
-      "description": "The general system state. If the system is following the MAVLink standard, the system state is mainly defined by three orthogonal states/modes: The system mode, which is either LOCKED (motors shut down and locked), MANUAL (system under RC control), GUIDED (system with autonomous position control, position setpoint controlled manually) or AUTO (system guided by path/waypoint planner). The NAV_MODE defined the current flight state: LIFTOFF (often an open-loop maneuver), LANDING, WAYPOINTS or VECTOR. This represents the internal navigation state machine. The system status shows whether the system is currently active or not and if an emergency occurred. During the CRITICAL and EMERGENCY states the MAV is still considered to be active, but should start emergency procedures autonomously. After a failure occurred it should first move from active to critical to allow manual intervention and then move to emergency after a certain timeout.",
+      "description": "Sensor and subsystem status information. Provides a compact representation of sensor/subsystem status and a few other basic statistics.",
       "fields": [
         {
           "name": "onboard_control_sensors_present",
@@ -20575,26 +20575,34 @@
         {
           "name": "x",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "invalid": "INT16_MAX",
           "description": "X-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to forward(1000)-backward(-1000) movement on a joystick and the pitch of a vehicle."
         },
         {
           "name": "y",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "invalid": "INT16_MAX",
           "description": "Y-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to left(-1000)-right(1000) movement on a joystick and the roll of a vehicle."
         },
         {
           "name": "z",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "invalid": "INT16_MAX",
           "description": "Z-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a separate slider movement with maximum being 1000 and minimum being -1000 on a joystick and the thrust of a vehicle. Positive values are positive thrust, negative values are negative thrust."
         },
         {
           "name": "r",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "invalid": "INT16_MAX",
-          "description": "R-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a twisting of the joystick, with counter-clockwise being 1000 and clockwise being -1000, and the yaw of a vehicle."
+          "description": "R-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a twisting of the joystick, with clockwise being 1000 and counter-clockwise being -1000, and the yaw of a vehicle."
         },
         {
           "name": "buttons",
@@ -20616,48 +20624,64 @@
         {
           "name": "s",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Pitch-only-axis, normalized to the range [-1000,1000]. Generally corresponds to pitch on vehicles with additional degrees of freedom. Valid if bit 0 of enabled_extensions field is set. Set to 0 if invalid.",
           "extension": true
         },
         {
           "name": "t",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Roll-only-axis, normalized to the range [-1000,1000]. Generally corresponds to roll on vehicles with additional degrees of freedom. Valid if bit 1 of enabled_extensions field is set. Set to 0 if invalid.",
           "extension": true
         },
         {
           "name": "aux1",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Aux continuous input field 1. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 2 of enabled_extensions field is set. 0 if bit 2 is unset.",
           "extension": true
         },
         {
           "name": "aux2",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Aux continuous input field 2. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 3 of enabled_extensions field is set. 0 if bit 3 is unset.",
           "extension": true
         },
         {
           "name": "aux3",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Aux continuous input field 3. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 4 of enabled_extensions field is set. 0 if bit 4 is unset.",
           "extension": true
         },
         {
           "name": "aux4",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Aux continuous input field 4. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 5 of enabled_extensions field is set. 0 if bit 5 is unset.",
           "extension": true
         },
         {
           "name": "aux5",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Aux continuous input field 5. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 6 of enabled_extensions field is set. 0 if bit 6 is unset.",
           "extension": true
         },
         {
           "name": "aux6",
           "type": "int16_t",
+          "minValue": "-1000",
+          "maxValue": "1000",
           "description": "Aux continuous input field 6. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 7 of enabled_extensions field is set. 0 if bit 7 is unset.",
           "extension": true
         }
@@ -29979,7 +30003,6 @@
       "name": "COMPONENT_METADATA",
       "id": 397,
       "description": "Component metadata message, which may be requested using MAV_CMD_REQUEST_MESSAGE. This contains the MAVLink FTP URI and CRC for the component's general metadata file. The file must be hosted on the component, and may be xz compressed. The file CRC can be used for file caching. The general metadata file can be read to get the locations of other metadata files (COMP_METADATA_TYPE) and translations, which may be hosted either on the vehicle or the internet. For more information see: https://mavlink.io/en/services/component_information.html. Note: Camera components should use CAMERA_INFORMATION instead, and autopilots may use both this message and AUTOPILOT_VERSION.",
-      "wip": true,
       "fields": [
         {
           "name": "time_boot_ms",
