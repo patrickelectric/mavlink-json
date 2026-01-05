@@ -6387,7 +6387,9 @@
             },
             {
               "index": "4",
-              "description": "Empty"
+              "label": "Options",
+              "enum": "ENGINE_CONTROL_OPTIONS",
+              "description": "A bitmask of options for engine control"
             },
             {
               "index": "5",
@@ -12063,6 +12065,18 @@
           "name": "RC_SUB_TYPE_SPEKTRUM_DSMX8",
           "value": 2,
           "description": "Spektrum DSMX8"
+        }
+      ]
+    },
+    {
+      "name": "ENGINE_CONTROL_OPTIONS",
+      "bitmask": "true",
+      "description": "Engine control options",
+      "entries": [
+        {
+          "name": "ENGINE_CONTROL_OPTIONS_ALLOW_START_WHILE_DISARMED",
+          "value": 1,
+          "description": "Allow starting the engine while disarmed (without changing the vehicle's armed state). This effectively arms just the ICE, without arming the vehicle to start other motors or propellers."
         }
       ]
     },
