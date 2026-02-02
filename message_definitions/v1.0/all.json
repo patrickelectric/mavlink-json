@@ -4786,7 +4786,7 @@
           "value": 181,
           "hasLocation": "false",
           "isDestination": "false",
-          "description": "Set a relay to a condition.",
+          "description": "Set a relay to a condition. The current value may optionally be reported using RELAY_STATUS.",
           "params": [
             {
               "index": "1",
@@ -20538,7 +20538,8 @@
         {
           "name": "req_stream_id",
           "type": "uint8_t",
-          "description": "The ID of the requested data stream"
+          "enum": "MAV_DATA_STREAM",
+          "description": "The ID of the requested data stream."
         },
         {
           "name": "req_message_rate",
@@ -20561,7 +20562,8 @@
         {
           "name": "stream_id",
           "type": "uint8_t",
-          "description": "The ID of the requested data stream"
+          "enum": "MAV_DATA_STREAM",
+          "description": "The ID of the requested data stream."
         },
         {
           "name": "message_rate",
@@ -27447,7 +27449,6 @@
         {
           "name": "gimbal_device_id",
           "type": "uint8_t",
-          "instance": "true",
           "description": "Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals)."
         },
         {
@@ -27831,7 +27832,6 @@
         {
           "name": "gimbal_device_id",
           "type": "uint8_t",
-          "instance": "true",
           "description": "Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals)."
         },
         {
@@ -27888,7 +27888,6 @@
         {
           "name": "gimbal_device_id",
           "type": "uint8_t",
-          "instance": "true",
           "description": "Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals)."
         },
         {
@@ -29668,6 +29667,29 @@
           "name": "actuator",
           "type": "float[32]",
           "description": "Servo / motor output array values. Zero values indicate unused channels."
+        }
+      ]
+    },
+    {
+      "name": "RELAY_STATUS",
+      "id": 376,
+      "description": "Reports the on/off state of relays, as controlled by MAV_CMD_DO_SET_RELAY. Message streaming should be requested using MAV_CMD_SET_MESSAGE_INTERVAL. Note that it should not be sent on every relay state change to avoid flooding the link.",
+      "fields": [
+        {
+          "name": "time_boot_ms",
+          "type": "uint32_t",
+          "units": "ms",
+          "description": "Timestamp (time since system boot)."
+        },
+        {
+          "name": "on",
+          "type": "uint16_t",
+          "description": "Relay states. Relay instance numbers are represented as individual bits in this mask by offset."
+        },
+        {
+          "name": "present",
+          "type": "uint16_t",
+          "description": "Relay present. Relay instance numbers are represented as individual bits in this mask by offset. Bits will be true if a relay instance is configured."
         }
       ]
     },
