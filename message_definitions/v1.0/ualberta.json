@@ -17768,7 +17768,7 @@
         {
           "name": "thrust",
           "type": "float",
-          "description": "Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse trust)"
+          "description": "Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse thrust)"
         },
         {
           "name": "thrust_body",
@@ -17821,7 +17821,7 @@
         {
           "name": "thrust",
           "type": "float",
-          "description": "Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse trust)"
+          "description": "Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse thrust)"
         }
       ]
     },
