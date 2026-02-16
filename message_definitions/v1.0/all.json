@@ -14078,7 +14078,7 @@
     },
     {
       "name": "MAV_FTP_ERR",
-      "description": "MAV FTP error codes (https://mavlink.io/en/services/ftp.html)",
+      "description": "MAV FTP error codes (may be used in FILE_TRANSFER_PROTOCOL). See https://mavlink.io/en/services/ftp.html.",
       "entries": [
         {
           "name": "MAV_FTP_ERR_NONE",
@@ -14139,7 +14139,7 @@
     },
     {
       "name": "MAV_FTP_OPCODE",
-      "description": "MAV FTP opcodes: https://mavlink.io/en/services/ftp.html",
+      "description": "MAV FTP opcodes (may be used in FILE_TRANSFER_PROTOCOL). See https://mavlink.io/en/services/ftp.html.",
       "entries": [
         {
           "name": "MAV_FTP_OPCODE_NONE",
@@ -22869,7 +22869,7 @@
         {
           "name": "payload",
           "type": "uint8_t[251]",
-          "description": "Variable length payload. The length is defined by the remaining message length when subtracting the header and other fields. The content/format of this block is defined in https://mavlink.io/en/services/ftp.html."
+          "description": "Variable length payload. The content/format of this block is defined in https://mavlink.io/en/services/ftp.html. The length is defined by the remaining message length when subtracting the header and other fields. See also MAV_FTP_OPCODE and MAV_FTP_ERR."
         }
       ]
     },
@@ -23281,7 +23281,7 @@
     {
       "name": "LOG_REQUEST_LIST",
       "id": 117,
-      "description": "Request a list of available logs. On some systems calling this may stop on-board logging until LOG_REQUEST_END is called. If there are no log files available this request shall be answered with one LOG_ENTRY message with id = 0 and num_logs = 0.",
+      "description": "Request a list of available logs. On some systems calling this may stop on-board logging until LOG_REQUEST_END is called. If there are no log files available this request shall be answered with one LOG_ENTRY message with id = 0 and num_logs = 0. LOG_ENTRY messages can start with id 1 or 0. The ground station needs to be able to process either.",
       "fields": [
         {
           "name": "target_system",
