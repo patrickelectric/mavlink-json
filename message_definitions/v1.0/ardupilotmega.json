@@ -5422,13 +5422,11 @@
             {
               "index": "5",
               "label": "Latitude",
-              "units": "degE7",
               "description": "Latitude of ROI location"
             },
             {
               "index": "6",
               "label": "Longitude",
-              "units": "degE7",
               "description": "Longitude of ROI location"
             },
             {
@@ -7087,7 +7085,7 @@
           "value": 410,
           "hasLocation": "false",
           "isDestination": "false",
-          "description": "Request the home position from the vehicle. The vehicle will ACK the command and then emit the HOME_POSITION message.",
+          "description": "Request the home position from the vehicle. The vehicle will ACK the command and emit the HOME_POSITION message.",
           "params": [
             {
               "index": "1",
