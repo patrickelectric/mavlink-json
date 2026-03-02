@@ -14456,6 +14456,64 @@
       ]
     },
     {
+      "name": "GLOBAL_POSITION_SRC",
+      "description": "Source for GLOBAL_POSITION measurement or estimate.",
+      "entries": [
+        {
+          "name": "GLOBAL_POSITION_SRC_UNKNOWN",
+          "value": 0,
+          "description": "Source is unknown or not one of the listed types."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_GNSS",
+          "value": 1,
+          "description": "Global Navigation Satellite System (e.g.: GPS, Galileo, Glonass, BeiDou)."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_VISION",
+          "value": 2,
+          "description": "Vision system (e.g.: map matching)."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_PSEUDOLITES",
+          "value": 3,
+          "description": "A pseudo-satellite system using transceiver beacons to perform GNSS-like positioning."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_TERRAIN",
+          "value": 4,
+          "description": "Terrain referenced navigation."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_MAGNETIC",
+          "value": 5,
+          "description": "Magnetic positioning."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_ESTIMATOR",
+          "value": 6,
+          "description": "Estimated position based on various sensors (eg. a Kalman Filter)."
+        }
+      ]
+    },
+    {
+      "name": "GLOBAL_POSITION_FLAGS",
+      "bitmask": "true",
+      "description": "Status flags for GLOBAL_POSITION",
+      "entries": [
+        {
+          "name": "GLOBAL_POSITION_UNHEALTHY",
+          "value": 1,
+          "description": "Unhealthy sensor/estimator."
+        },
+        {
+          "name": "GLOBAL_POSITION_PRIMARY",
+          "value": 2,
+          "description": "True if the data originates from or is consumed by the primary estimator."
+        }
+      ]
+    },
+    {
       "name": "MAV_BATTERY_STATUS_FLAGS",
       "bitmask": "true",
       "description": "Battery status flags for fault, health and state indication.",
@@ -14846,64 +14904,6 @@
           "name": "ACTUATOR_TEST_GROUP_COLLECTIVE_TILT",
           "value": 3,
           "description": "Actuators that affect collective tilt."
-        }
-      ]
-    },
-    {
-      "name": "GLOBAL_POSITION_SRC",
-      "description": "Source for GLOBAL_POSITION measurement or estimate.",
-      "entries": [
-        {
-          "name": "GLOBAL_POSITION_UNKNOWN",
-          "value": 0,
-          "description": "Source is unknown or not one of the listed types."
-        },
-        {
-          "name": "GLOBAL_POSITION_GNSS",
-          "value": 1,
-          "description": "Global Navigation Satellite System (e.g.: GPS, Galileo, Glonass, BeiDou)."
-        },
-        {
-          "name": "GLOBAL_POSITION_VISION",
-          "value": 2,
-          "description": "Vision system (e.g.: map matching)."
-        },
-        {
-          "name": "GLOBAL_POSITION_PSEUDOLITES",
-          "value": 3,
-          "description": "Pseudo-satellite system (performs GNSS-like function, but usually with transceiver beacons)."
-        },
-        {
-          "name": "GLOBAL_POSITION_TRN",
-          "value": 4,
-          "description": "Terrain referenced navigation."
-        },
-        {
-          "name": "GLOBAL_POSITION_MAGNETIC",
-          "value": 5,
-          "description": "Magnetic positioning."
-        },
-        {
-          "name": "GLOBAL_POSITION_ESTIMATOR",
-          "value": 6,
-          "description": "Estimated position based on various sensors (eg. a Kalman Filter)."
-        }
-      ]
-    },
-    {
-      "name": "GLOBAL_POSITION_FLAGS",
-      "bitmask": "true",
-      "description": "Status flags for GLOBAL_POSITION",
-      "entries": [
-        {
-          "name": "GLOBAL_POSITION_UNHEALTHY",
-          "value": 1,
-          "description": "Unhealthy sensor/estimator."
-        },
-        {
-          "name": "GLOBAL_POSITION_PRIMARY",
-          "value": 2,
-          "description": "True if the data originates from or is consumed by the primary estimator."
         }
       ]
     },
@@ -24921,6 +24921,97 @@
       ]
     },
     {
+      "name": "GLOBAL_POSITION_SENSOR",
+      "id": 296,
+      "description": "Reports measurement/estimate from a global position sensor. Used as navigation fusion source and optionally displayed in the UI.",
+      "fields": [
+        {
+          "name": "target_system",
+          "type": "uint8_t",
+          "default": "0",
+          "description": "System ID (ID of target system, normally autopilot and ground station)."
+        },
+        {
+          "name": "target_component",
+          "type": "uint8_t",
+          "default": "0",
+          "description": "Component ID (normally 0 for broadcast)."
+        },
+        {
+          "name": "id",
+          "type": "uint8_t",
+          "instance": "true",
+          "description": "Sensor ID"
+        },
+        {
+          "name": "time_usec",
+          "type": "uint64_t",
+          "units": "us",
+          "description": "Timestamp of message transmission (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number."
+        },
+        {
+          "name": "processing_time",
+          "type": "uint32_t",
+          "units": "us",
+          "description": "The time spent in processing the sensor data that is the basis for this position. The recipient can use this to improve time alignment of the data. This is the time between measurement (e.g. camera exposure time) and transmission of this message. Set to NaN if not known."
+        },
+        {
+          "name": "source",
+          "type": "uint8_t",
+          "enum": "GLOBAL_POSITION_SRC",
+          "description": "Source of position/estimate (such as GNSS, estimator, etc.)"
+        },
+        {
+          "name": "flags",
+          "type": "uint8_t",
+          "enum": "GLOBAL_POSITION_FLAGS",
+          "description": "Status flags"
+        },
+        {
+          "name": "lat",
+          "type": "int32_t",
+          "units": "degE7",
+          "invalid": "INT32_MAX",
+          "description": "Latitude (WGS84)"
+        },
+        {
+          "name": "lon",
+          "type": "int32_t",
+          "units": "degE7",
+          "invalid": "INT32_MAX",
+          "description": "Longitude (WGS84)"
+        },
+        {
+          "name": "alt_ellipsoid",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Altitude (WGS84 elipsoid), preferred if available"
+        },
+        {
+          "name": "alt",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Altitude (MSL - position-system specific value) use if no alt_ellipsoid available"
+        },
+        {
+          "name": "eph",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Standard deviation of horizontal position error"
+        },
+        {
+          "name": "epv",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Standard deviation of vertical position error"
+        }
+      ]
+    },
+    {
       "name": "WIFI_CONFIG_AP",
       "id": 299,
       "description": "Configure WiFi AP SSID, password, and mode. This message is re-emitted as an acknowledgement by the AP. The message may also be explicitly requested using MAV_CMD_REQUEST_MESSAGE",
@@ -27913,79 +28004,6 @@
           "type": "uint16_t",
           "units": "c%",
           "description": "Humidity"
-        }
-      ]
-    },
-    {
-      "name": "GLOBAL_POSITION",
-      "id": 296,
-      "description": "Global position measurement or estimate.",
-      "fields": [
-        {
-          "name": "id",
-          "type": "uint8_t",
-          "instance": "true",
-          "description": "Sensor ID"
-        },
-        {
-          "name": "time_usec",
-          "type": "uint64_t",
-          "units": "us",
-          "description": "Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude of the number."
-        },
-        {
-          "name": "source",
-          "type": "uint8_t",
-          "enum": "GLOBAL_POSITION_SRC",
-          "description": "Source of position/estimate (such as GNSS, estimator, etc.)"
-        },
-        {
-          "name": "flags",
-          "type": "uint8_t",
-          "enum": "GLOBAL_POSITION_FLAGS",
-          "description": "Status flags"
-        },
-        {
-          "name": "lat",
-          "type": "int32_t",
-          "units": "degE7",
-          "invalid": "INT32_MAX",
-          "description": "Latitude (WGS84)"
-        },
-        {
-          "name": "lon",
-          "type": "int32_t",
-          "units": "degE7",
-          "invalid": "INT32_MAX",
-          "description": "Longitude (WGS84)"
-        },
-        {
-          "name": "alt",
-          "type": "float",
-          "units": "m",
-          "invalid": "NaN",
-          "description": "Altitude (MSL - position-system specific value)"
-        },
-        {
-          "name": "alt_ellipsoid",
-          "type": "float",
-          "units": "m",
-          "invalid": "NaN",
-          "description": "Altitude (WGS84 elipsoid)"
-        },
-        {
-          "name": "eph",
-          "type": "float",
-          "units": "m",
-          "invalid": "NaN",
-          "description": "Standard deviation of horizontal position error"
-        },
-        {
-          "name": "epv",
-          "type": "float",
-          "units": "m",
-          "invalid": "NaN",
-          "description": "Standard deviation of vertical position error"
         }
       ]
     },
