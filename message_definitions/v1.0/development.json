@@ -2106,13 +2106,23 @@
           "name": "GIMBAL_DEVICE_CAP_FLAGS_HAS_RC_INPUTS",
           "value": 8192,
           "description": "Gimbal device supports radio control inputs as an alternative input for controlling the gimbal orientation."
+        },
+        {
+          "name": "GIMBAL_DEVICE_CAP_FLAGS_CAN_POINT_LOCATION_LOCAL",
+          "value": 65536,
+          "description": "Gimbal device supports to point to a local position."
+        },
+        {
+          "name": "GIMBAL_DEVICE_CAP_FLAGS_CAN_POINT_LOCATION_GLOBAL",
+          "value": 131072,
+          "description": "Gimbal device supports to point to a global latitude, longitude, altitude position."
         }
       ]
     },
     {
       "name": "GIMBAL_MANAGER_CAP_FLAGS",
       "bitmask": "true",
-      "description": "Gimbal manager high level capability flags (bitmap). The first 16 bits are identical to the GIMBAL_DEVICE_CAP_FLAGS. However, the gimbal manager does not need to copy the flags from the gimbal but can also enhance the capabilities and thus add flags.",
+      "description": "Gimbal manager high level capability flags (bitmap). The flags are identical to the GIMBAL_DEVICE_CAP_FLAGS. However, the gimbal manager does not need to copy the flags from the gimbal but can also enhance the capabilities and thus add flags.",
       "entries": [
         {
           "name": "GIMBAL_MANAGER_CAP_FLAGS_HAS_RETRACT",
@@ -2187,12 +2197,12 @@
         {
           "name": "GIMBAL_MANAGER_CAP_FLAGS_CAN_POINT_LOCATION_LOCAL",
           "value": 65536,
-          "description": "Gimbal manager supports to point to a local position."
+          "description": "Based on GIMBAL_DEVICE_CAP_FLAGS_CAN_POINT_LOCATION_LOCAL."
         },
         {
           "name": "GIMBAL_MANAGER_CAP_FLAGS_CAN_POINT_LOCATION_GLOBAL",
           "value": 131072,
-          "description": "Gimbal manager supports to point to a global latitude, longitude, altitude position."
+          "description": "Based on GIMBAL_DEVICE_CAP_FLAGS_CAN_POINT_LOCATION_GLOBAL."
         }
       ]
     },
@@ -24453,6 +24463,14 @@
           "invalid": "0",
           "description": "This field is to be used if the gimbal manager and the gimbal device are the same component and hence have the same component ID. This field is then set to a number between 1-6. If the component ID is separate, this field is not required and must be set to 0.",
           "extension": true
+        },
+        {
+          "name": "cap_flags2",
+          "type": "uint32_t",
+          "enum": "GIMBAL_DEVICE_CAP_FLAGS",
+          "invalid": "0",
+          "description": "Extended bitmap of gimbal capability flags (32 bit). For backwards compatibility, the lower 16 bits should also be set in cap_flags. Ground stations should prefer this field if non-zero.",
+          "extension": true
         }
       ]
     },
@@ -28225,6 +28243,37 @@
           "minValue": "-4096",
           "maxValue": "4096",
           "description": "RC channels. Channel values are in centered 13 bit format. Range is -4096 to 4096, center is 0. Conversion to PWM is x * 5/32 + 1500. Channels with indexes equal or above count should be set to 0, to benefit from MAVLink's trailing-zero trimming.",
+          "extension": true
+        }
+      ]
+    },
+    {
+      "name": "RC_CHANNELS_OVERRIDE_V2",
+      "id": 421,
+      "description": "Highly bandwidth-efficient RC override message for professional networked operations (LTE, Zigbee, GCP). Supersedes RC_CHANNELS_OVERRIDE by adding 32-channel support and a bitmask for multi-master conflict avoidance. Uses centered-at-zero values and extension-field placement to maximize MAVLink 2 trailing-zero truncation.",
+      "wip": true,
+      "fields": [
+        {
+          "name": "target_system",
+          "type": "uint8_t",
+          "description": "System ID."
+        },
+        {
+          "name": "target_component",
+          "type": "uint8_t",
+          "description": "Component ID."
+        },
+        {
+          "name": "active_mask",
+          "type": "uint32_t",
+          "description": "Bitmap of included channels (bit 0 = CH1). 1: Valid/Override, 0: Ignore."
+        },
+        {
+          "name": "channels",
+          "type": "int16_t[32]",
+          "minValue": "-4096",
+          "maxValue": "4096",
+          "description": "RC channels in centered 13-bit format. Range: -4096 to 4096, Center: 0. Conversion to PWM: (x * 5/32) + 1500. Unused channels must be set to 0 to enable MAVLink 2 trailing-zero trimming.",
           "extension": true
         }
       ]
