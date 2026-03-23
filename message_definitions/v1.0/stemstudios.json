@@ -3187,6 +3187,74 @@
       ]
     },
     {
+      "name": "PREFLIGHT_CALIBRATION_MAGNETOMETER",
+      "description": "Action for the magnetometer (param2) of MAV_CMD_PREFLIGHT_CALIBRATION.",
+      "entries": [
+        {
+          "name": "PREFLIGHT_CALIBRATION_MAGNETOMETER_NONE",
+          "value": 0,
+          "description": "No action."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_MAGNETOMETER_START",
+          "value": 1,
+          "description": "Start magnetometer calibration."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_MAGNETOMETER_FORCE_SAVE",
+          "value": 76,
+          "description": "Force-accept the existing compass calibration as valid without re-running it. Useful after a parameter reload that cleared calibration validity flags."
+        }
+      ]
+    },
+    {
+      "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER",
+      "description": "Action for the accelerometer (param5) of MAV_CMD_PREFLIGHT_CALIBRATION.",
+      "entries": [
+        {
+          "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER_NONE",
+          "value": 0,
+          "description": "No action."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER_FULL",
+          "value": 1,
+          "description": "Full 6-position accelerometer calibration."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER_TRIM",
+          "value": 2,
+          "description": "Board level (trim) calibration."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER_TEMPERATURE",
+          "value": 3,
+          "description": "Accelerometer temperature calibration."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER_SIMPLE",
+          "value": 4,
+          "description": "Simple accelerometer calibration."
+        },
+        {
+          "name": "PREFLIGHT_CALIBRATION_ACCELEROMETER_FORCE_SAVE",
+          "value": 76,
+          "description": "Force-accept the existing accelerometer calibration as valid without re-running it. Useful after a parameter reload that cleared calibration validity flags."
+        }
+      ]
+    },
+    {
+      "name": "NAV_TAKEOFF_FLAGS",
+      "bitmask": "true",
+      "entries": [
+        {
+          "name": "NAV_TAKEOFF_FLAGS_HORIZONTAL_POSITION_NOT_REQUIRED",
+          "value": 1,
+          "description": "Accept the command even if the autopilot does not have control over its horizontal position (note that it might not have altitude control either)."
+        }
+      ]
+    },
+    {
       "name": "MAV_CMD",
       "description": "Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data. NaN and INT32_MAX may be used in float/integer params (respectively) to indicate optional/default values (e.g. to use the component's current yaw or latitude rather than a specific value). See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of the MAV_CMD entries",
       "entries": [
@@ -3486,7 +3554,9 @@
             },
             {
               "index": "3",
-              "description": "Empty"
+              "label": "Flags",
+              "enum": "NAV_TAKEOFF_FLAGS",
+              "description": "Bitmask of options flags."
             },
             {
               "index": "4",
@@ -6515,8 +6585,8 @@
             {
               "index": "2",
               "label": "Magnetometer",
-              "enum": "MAV_BOOL",
-              "description": "Magnetometer calibration. Values not equal to 0 or 1 are invalid."
+              "enum": "PREFLIGHT_CALIBRATION_MAGNETOMETER",
+              "description": "Magnetometer calibration action."
             },
             {
               "index": "3",
@@ -6535,10 +6605,8 @@
             {
               "index": "5",
               "label": "Accelerometer",
-              "minValue": "0",
-              "maxValue": "4",
-              "increment": "1",
-              "description": "1: accelerometer calibration, 2: board level calibration, 3: accelerometer temperature calibration, 4: simple accelerometer calibration"
+              "enum": "PREFLIGHT_CALIBRATION_ACCELEROMETER",
+              "description": "Accelerometer calibration action."
             },
             {
               "index": "6",
