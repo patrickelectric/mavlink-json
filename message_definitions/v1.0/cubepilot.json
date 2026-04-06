@@ -4020,6 +4020,40 @@
           ]
         },
         {
+          "name": "MAV_CMD_NAV_ARC_WAYPOINT",
+          "value": 36,
+          "hasLocation": "true",
+          "isDestination": "true",
+          "description": "Circular arc path waypoint. This defines the end/exit point and angle (param1) of an arc path from the previous waypoint. A position is required before this command to define the start of the arc (e.g. current position, a MAV_CMD_NAV_WAYPOINT, or a MAV_CMD_NAV_ARC_WAYPOINT). The resulting path is a circular arc in the NE frame, with the difference in height being defined by the difference in waypoint altitudes.",
+          "params": [
+            {
+              "index": "1",
+              "label": "Arc Angle",
+              "units": "deg",
+              "minValue": "-359",
+              "maxValue": "359",
+              "increment": "1",
+              "description": "The angle in degrees from the starting position to the exit position of the arc in the NE frame. Positive values are CW arcs and negative values are CCW arcs."
+            },
+            {
+              "index": "5",
+              "label": "Latitude",
+              "description": "Latitude"
+            },
+            {
+              "index": "6",
+              "label": "Longitude",
+              "description": "Longitude"
+            },
+            {
+              "index": "7",
+              "label": "Altitude",
+              "units": "m",
+              "description": "Altitude"
+            }
+          ]
+        },
+        {
           "name": "MAV_CMD_NAV_ROI",
           "value": 80,
           "hasLocation": "true",
@@ -8511,7 +8545,7 @@
           "value": 3001,
           "hasLocation": "false",
           "isDestination": "false",
-          "description": "Request authorization to arm the vehicle to a external entity, the arm authorizer is responsible to request all data that is needs from the vehicle before authorize or deny the request. If approved the COMMAND_ACK message progress field should be set with period of time that this authorization is valid in seconds. If the authorization is denied COMMAND_ACK.result_param2 should be set with one of the reasons in ARM_AUTH_DENIED_REASON.",
+          "description": "Request authorization to arm the vehicle to a external entity, the arm authorizer is responsible to request all data that is needs from the vehicle before authorize or deny the request. If approved the COMMAND_ACK message progress field should be set with period of time that this authorization is valid in seconds. If the authorization is denied COMMAND_ACK.result_param2 should be set with one of the reasons in MAV_ARM_AUTH_DENIED_REASON.",
           "params": [
             {
               "index": "1",
@@ -12079,6 +12113,7 @@
     },
     {
       "name": "MAV_ARM_AUTH_DENIED_REASON",
+      "description": "Reasons for denying an authorization request made with MAV_CMD_ARM_AUTHORIZATION_REQUEST. If the COMMAND_ACK result is MAV_RESULT_DENIED, this is used to set the reason in the result_param2 field.",
       "entries": [
         {
           "name": "MAV_ARM_AUTH_DENIED_REASON_GENERIC",
@@ -13664,15 +13699,17 @@
         {
           "name": "AIS_FLAGS_POSITION_ACCURACY",
           "value": 1,
-          "description": "1 = Position accuracy less than 10m, 0 = position accuracy greater than 10m."
+          "description": "1 = High (Position accuracy less than or equal to 10m), 0 = Low (position accuracy greater than 10m)."
         },
         {
           "name": "AIS_FLAGS_VALID_COG",
-          "value": 2
+          "value": 2,
+          "description": "The COG field contains valid data"
         },
         {
           "name": "AIS_FLAGS_VALID_VELOCITY",
-          "value": 4
+          "value": 4,
+          "description": "The velocity field contains valid data"
         },
         {
           "name": "AIS_FLAGS_HIGH_VELOCITY",
@@ -13681,12 +13718,13 @@
         },
         {
           "name": "AIS_FLAGS_VALID_TURN_RATE",
-          "value": 16
+          "value": 16,
+          "description": "The turn_rate field contains valid data"
         },
         {
           "name": "AIS_FLAGS_TURN_RATE_SIGN_ONLY",
           "value": 32,
-          "description": "Only the sign of the returned turn rate value is valid, either greater than 5deg/30s or less than -5deg/30s"
+          "description": "Only the sign of the returned turn_rate value is valid. The actual turn rate is either greater than 5deg/30s or less than -5deg/30s."
         },
         {
           "name": "AIS_FLAGS_VALID_DIMENSIONS",
@@ -13695,30 +13733,32 @@
         {
           "name": "AIS_FLAGS_LARGE_BOW_DIMENSION",
           "value": 128,
-          "description": "Distance to bow is larger than 511m"
+          "description": "Distance to bow is greater than or equal to 511m"
         },
         {
           "name": "AIS_FLAGS_LARGE_STERN_DIMENSION",
           "value": 256,
-          "description": "Distance to stern is larger than 511m"
+          "description": "Distance to stern is greater than or equal to 511m"
         },
         {
           "name": "AIS_FLAGS_LARGE_PORT_DIMENSION",
           "value": 512,
-          "description": "Distance to port side is larger than 63m"
+          "description": "Distance to port side is greater than or equal to 63m"
         },
         {
           "name": "AIS_FLAGS_LARGE_STARBOARD_DIMENSION",
           "value": 1024,
-          "description": "Distance to starboard side is larger than 63m"
+          "description": "Distance to starboard side is greater than or equal to 63m"
         },
         {
           "name": "AIS_FLAGS_VALID_CALLSIGN",
-          "value": 2048
+          "value": 2048,
+          "description": "The callsign field contains valid data"
         },
         {
           "name": "AIS_FLAGS_VALID_NAME",
-          "value": 4096
+          "value": 4096,
+          "description": "The name field contains valid data"
         }
       ]
     },
@@ -13843,14 +13883,14 @@
           "description": "Default autopilot landing behaviour."
         },
         {
-          "name": "NAV_VTOL_LAND_OPTIONS_FW_DESCENT",
+          "name": "NAV_VTOL_LAND_OPTIONS_FW_SPIRAL_APPROACH",
           "value": 1,
-          "description": "Descend in fixed wing mode, transitioning to multicopter mode for vertical landing when close to the ground. The fixed wing descent pattern is at the discretion of the vehicle (e.g. transition altitude, loiter direction, radius, and speed, etc.)."
+          "description": "Use a fixed wing spiral desent approach before landing."
         },
         {
-          "name": "NAV_VTOL_LAND_OPTIONS_HOVER_DESCENT",
+          "name": "NAV_VTOL_LAND_OPTIONS_FW_APPROACH",
           "value": 2,
-          "description": "Land in multicopter mode on reaching the landing coordinates (the whole landing is by \"hover descent\")."
+          "description": "Use a fixed wing approach before detransitioning and landing vertically."
         }
       ]
     },
@@ -17112,7 +17152,7 @@
     {
       "name": "MANUAL_CONTROL",
       "id": 69,
-      "description": "Manual (joystick) control message. This message represents movement axes and button using standard joystick axes nomenclature. Unused axes can be disabled and buttons states are transmitted as individual on/off bits of a bitmask. For more information see https://mavlink.io/en/manual_control.html",
+      "description": "Manual (joystick) control message. This message represents movement axes and button using standard joystick axes nomenclature. Unused axes can be disabled and buttons states are transmitted as individual on/off bits of a bitmask. For more information see https://mavlink.io/en/services/manual_control.html",
       "fields": [
         {
           "name": "target",
@@ -22440,12 +22480,14 @@
           "name": "lat",
           "type": "int32_t",
           "units": "degE7",
+          "invalid": "INT32_MAX",
           "description": "Latitude"
         },
         {
           "name": "lon",
           "type": "int32_t",
           "units": "degE7",
+          "invalid": "INT32_MAX",
           "description": "Longitude"
         },
         {
@@ -22458,24 +22500,28 @@
           "name": "altitude",
           "type": "int32_t",
           "units": "mm",
-          "description": "Altitude(ASL)"
+          "invalid": "INT32_MAX",
+          "description": "Altitude (ASL)"
         },
         {
           "name": "heading",
           "type": "uint16_t",
           "units": "cdeg",
+          "invalid": "UINT16_MAX",
           "description": "Course over ground"
         },
         {
           "name": "hor_velocity",
           "type": "uint16_t",
           "units": "cm/s",
+          "invalid": "UINT16_MAX",
           "description": "The horizontal velocity"
         },
         {
           "name": "ver_velocity",
           "type": "int16_t",
           "units": "cm/s",
+          "invalid": "INT16_MAX",
           "description": "The vertical velocity. Positive is up"
         },
         {
@@ -22493,7 +22539,7 @@
           "name": "tslc",
           "type": "uint8_t",
           "units": "s",
-          "description": "Time since last communication in seconds"
+          "description": "Time since last communication from the remote vehicle, in seconds."
         },
         {
           "name": "flags",
@@ -24764,36 +24810,42 @@
           "name": "lat",
           "type": "int32_t",
           "units": "degE7",
+          "invalid": "INT32_MAX",
           "description": "Latitude"
         },
         {
           "name": "lon",
           "type": "int32_t",
           "units": "degE7",
+          "invalid": "INT32_MAX",
           "description": "Longitude"
         },
         {
           "name": "COG",
           "type": "uint16_t",
           "units": "cdeg",
+          "invalid": "UINT16_MAX",
           "description": "Course over ground"
         },
         {
           "name": "heading",
           "type": "uint16_t",
           "units": "cdeg",
+          "invalid": "UINT16_MAX",
           "description": "True heading"
         },
         {
           "name": "velocity",
           "type": "uint16_t",
           "units": "cm/s",
+          "invalid": "UINT16_MAX",
           "description": "Speed over ground"
         },
         {
           "name": "turn_rate",
           "type": "int8_t",
           "units": "ddeg/s",
+          "invalid": "INT8_MAX",
           "description": "Turn rate, 0.1 degrees per second"
         },
         {
@@ -24812,41 +24864,45 @@
           "name": "dimension_bow",
           "type": "uint16_t",
           "units": "m",
+          "invalid": "UINT16_MAX",
           "description": "Distance from lat/lon location to bow"
         },
         {
           "name": "dimension_stern",
           "type": "uint16_t",
           "units": "m",
+          "invalid": "UINT16_MAX",
           "description": "Distance from lat/lon location to stern"
         },
         {
           "name": "dimension_port",
           "type": "uint8_t",
           "units": "m",
+          "invalid": "UINT8_MAX",
           "description": "Distance from lat/lon location to port side"
         },
         {
           "name": "dimension_starboard",
           "type": "uint8_t",
           "units": "m",
+          "invalid": "UINT8_MAX",
           "description": "Distance from lat/lon location to starboard side"
         },
         {
           "name": "callsign",
           "type": "char[7]",
-          "description": "The vessel callsign"
+          "description": "The vessel callsign. Characters are encoded as 7-bit ASCII, but only characters in the [AIS 6-bit ASCII subset](https://en.wikipedia.org/wiki/Six-bit_character_code#AIS_SixBit_ASCII) are permitted. Also set AIS_FLAGS_VALID_CALLSIGN if valid. The string is NULL-terminated if it is shorter than the array length."
         },
         {
           "name": "name",
           "type": "char[20]",
-          "description": "The vessel name"
+          "description": "The vessel name. Characters are encoded as 7-bit ASCII, but only characters in the [AIS 6-bit ASCII subset](https://en.wikipedia.org/wiki/Six-bit_character_code#AIS_SixBit_ASCII) are permitted. Also set AIS_FLAGS_VALID_NAME if valid. The string is NULL-terminated if it is shorter than the array length."
         },
         {
           "name": "tslc",
           "type": "uint16_t",
           "units": "s",
-          "description": "Time since last communication in seconds"
+          "description": "Time since last communication from the vessel, in seconds"
         },
         {
           "name": "flags",
