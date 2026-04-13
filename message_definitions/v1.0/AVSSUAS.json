@@ -9848,7 +9848,7 @@
           "value": 32000,
           "hasLocation": "false",
           "isDestination": "false",
-          "description": "Request forwarding of CAN packets from the given CAN bus to this component. CAN Frames are sent using CAN_FRAME and CANFD_FRAME messages",
+          "description": "Request forwarding of CAN packets from the given CAN bus to this component via this MAVLink channel. CAN Frames are sent using CAN_FRAME and CANFD_FRAME messages",
           "params": [
             {
               "index": "1",
@@ -16055,6 +16055,7 @@
         {
           "name": "port",
           "type": "uint8_t",
+          "instance": "true",
           "description": "Servo output port (set of 8 outputs = 1 port). Flight stacks running on Pixhawk should use: 0 = MAIN, 1 = AUX."
         },
         {
@@ -20770,6 +20771,7 @@
         {
           "name": "mask",
           "type": "uint64_t",
+          "display": "bitmask",
           "print_format": "0x%07x",
           "description": "Bitmask of requested 4x4 grids (row major 8x7 array of grids, 56 bits)"
         }
@@ -21563,6 +21565,7 @@
         {
           "name": "cal_mask",
           "type": "uint8_t",
+          "display": "bitmask",
           "description": "Bitmask of compasses being calibrated."
         },
         {
@@ -22060,6 +22063,7 @@
         {
           "name": "custom_mode",
           "type": "uint32_t",
+          "display": "bitmask",
           "description": "A bitfield for use for autopilot-specific flags."
         },
         {
@@ -22220,6 +22224,7 @@
         {
           "name": "custom_mode",
           "type": "uint16_t",
+          "display": "bitmask",
           "description": "A bitfield for use for autopilot-specific flags (2 byte version)."
         },
         {
@@ -22969,6 +22974,7 @@
         {
           "name": "state",
           "type": "uint8_t",
+          "display": "bitmask",
           "description": "Bitmap for state of buttons."
         }
       ]
@@ -24151,6 +24157,7 @@
         {
           "name": "gimbal_device_id",
           "type": "uint8_t",
+          "instance": "true",
           "description": "Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals)."
         },
         {
@@ -24542,6 +24549,7 @@
         {
           "name": "gimbal_device_id",
           "type": "uint8_t",
+          "instance": "true",
           "description": "Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals)."
         },
         {
@@ -24598,6 +24606,7 @@
         {
           "name": "gimbal_device_id",
           "type": "uint8_t",
+          "instance": "true",
           "description": "Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device components. Send command multiple times for more than one gimbal (but not all gimbals)."
         },
         {
@@ -26472,6 +26481,7 @@
         {
           "name": "active",
           "type": "uint32_t",
+          "display": "bitmask",
           "description": "Active outputs"
         },
         {
@@ -26495,11 +26505,13 @@
         {
           "name": "on",
           "type": "uint16_t",
+          "display": "bitmask",
           "description": "Relay states. Relay instance numbers are represented as individual bits in this mask by offset."
         },
         {
           "name": "present",
           "type": "uint16_t",
+          "display": "bitmask",
           "description": "Relay present. Relay instance numbers are represented as individual bits in this mask by offset. Bits will be true if a relay instance is configured."
         }
       ]
