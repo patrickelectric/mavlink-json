@@ -14616,6 +14616,11 @@
           "name": "GLOBAL_POSITION_SRC_ESTIMATOR",
           "value": 6,
           "description": "Estimated position based on various sensors (eg. a Kalman Filter)."
+        },
+        {
+          "name": "GLOBAL_POSITION_SRC_LEO",
+          "value": 7,
+          "description": "Low Earth Orbit satellite-based positioning (e.g.: Starlink, Xona PULSAR)."
         }
       ]
     },
@@ -22357,7 +22362,7 @@
     {
       "name": "HOME_POSITION",
       "id": 242,
-      "description": "Contains the home position. The home position is the default position that the system will return to and land on. The position must be set automatically by the system during the takeoff, and may also be explicitly set using MAV_CMD_DO_SET_HOME. The global and local positions encode the position in the respective coordinate frames, while the q parameter encodes the orientation of the surface. Under normal conditions it describes the heading and terrain slope, which can be used by the aircraft to adjust the approach. The approach 3D vector describes the point to which the system should fly in normal flight mode and then perform a landing sequence along the vector. Note: this message can be requested by sending the MAV_CMD_REQUEST_MESSAGE with param1=242 (or the deprecated MAV_CMD_GET_HOME_POSITION command).",
+      "description": "Contains the home position. The home position is the default position that the system will return to and land on. The position must be set automatically by the system during the takeoff, and may also be explicitly set using MAV_CMD_DO_SET_HOME. The global and local positions encode the position in the respective coordinate frames, while the q parameter encodes the orientation of the surface. Under normal conditions it describes the heading and terrain slope, which can be used by the aircraft to adjust the approach. The approach 3D vector describes the point to which the system should fly in normal flight mode and then perform a landing sequence along the vector. Note: this message can be requested by sending the MAV_CMD_REQUEST_MESSAGE with param1=242.",
       "fields": [
         {
           "name": "latitude",
@@ -22509,7 +22514,7 @@
     {
       "name": "MESSAGE_INTERVAL",
       "id": 244,
-      "description": "The interval between messages for a particular MAVLink message ID. This message is sent in response to the MAV_CMD_REQUEST_MESSAGE command with param1=244 (this message) and param2=message_id (the id of the message for which the interval is required). It may also be sent in response to MAV_CMD_GET_MESSAGE_INTERVAL. This interface replaces DATA_STREAM.",
+      "description": "The interval between messages for a particular MAVLink message ID. This message is sent in response to the MAV_CMD_REQUEST_MESSAGE command with param1=244 (this message) and param2=message_id (the id of the message for which the interval is required). This interface replaces DATA_STREAM.",
       "fields": [
         {
           "name": "message_id",
@@ -25037,7 +25042,7 @@
     {
       "name": "UAVCAN_NODE_INFO",
       "id": 311,
-      "description": "General information describing a particular UAVCAN node. Please refer to the definition of the UAVCAN service \"uavcan.protocol.GetNodeInfo\" for the background information. This message should be emitted by the system whenever a new node appears online, or an existing node reboots. Additionally, it can be emitted upon request from the other end of the MAVLink channel (see MAV_CMD_UAVCAN_GET_NODE_INFO). It is also not prohibited to emit this message unconditionally at a low frequency. The UAVCAN specification is available at http://uavcan.org.",
+      "description": "General information describing a particular UAVCAN node. Please refer to the definition of the UAVCAN service \"uavcan.protocol.GetNodeInfo\" for the background information. This message should be emitted by the system whenever a new node appears online, or an existing node reboots. The message may also be explicitly requested using MAV_CMD_REQUEST_MESSAGE. It is also not prohibited to emit this message unconditionally at a low frequency. The DroneCAN specification is available at https://dronecan.github.io/Specification/1._Introduction/.",
       "fields": [
         {
           "name": "time_usec",
