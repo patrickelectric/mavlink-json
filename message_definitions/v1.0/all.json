@@ -5203,16 +5203,12 @@
             {
               "index": "5",
               "label": "Actuator 5",
-              "minValue": "-1",
-              "maxValue": "1",
-              "description": "Actuator 5 value, scaled from [-1 to 1]. NaN to ignore."
+              "description": "Actuator 5 value. If sent in COMMAND_LONG: value is scaled from [-1 to 1]. NaN to ignore. If sent in COMMAND_INT or MISSION_ITEM_INT: value is scaled by 1e7. INT32_MAX to ignore."
             },
             {
               "index": "6",
               "label": "Actuator 6",
-              "minValue": "-1",
-              "maxValue": "1",
-              "description": "Actuator 6 value, scaled from [-1 to 1]. NaN to ignore."
+              "description": "Actuator 6 value. If sent in COMMAND_LONG: value is scaled from [-1 to 1]. NaN to ignore. If sent in COMMAND_INT or MISSION_ITEM_INT: value is scaled by 1e7. INT32_MAX to ignore."
             },
             {
               "index": "7",
@@ -30129,6 +30125,81 @@
       ]
     },
     {
+      "name": "CANFD_FRAME",
+      "id": 387,
+      "description": "A forwarded CANFD frame as requested by MAV_CMD_CAN_FORWARD. These are separated from CAN_FRAME as they need different handling (eg. TAO handling)",
+      "fields": [
+        {
+          "name": "target_system",
+          "type": "uint8_t",
+          "description": "System ID."
+        },
+        {
+          "name": "target_component",
+          "type": "uint8_t",
+          "description": "Component ID."
+        },
+        {
+          "name": "bus",
+          "type": "uint8_t",
+          "description": "bus number"
+        },
+        {
+          "name": "len",
+          "type": "uint8_t",
+          "description": "Frame length"
+        },
+        {
+          "name": "id",
+          "type": "uint32_t",
+          "description": "Frame ID"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t[64]",
+          "description": "Frame data"
+        }
+      ]
+    },
+    {
+      "name": "CAN_FILTER_MODIFY",
+      "id": 388,
+      "description": "Modify the filter of what CAN messages to forward over the mavlink. This can be used to make CAN forwarding work well on low bandwidth links. The filtering is applied on bits 8 to 24 of the CAN id (2nd and 3rd bytes) which corresponds to the DroneCAN message ID for DroneCAN. Filters with more than 16 IDs can be constructed by sending multiple CAN_FILTER_MODIFY messages.",
+      "fields": [
+        {
+          "name": "target_system",
+          "type": "uint8_t",
+          "description": "System ID."
+        },
+        {
+          "name": "target_component",
+          "type": "uint8_t",
+          "description": "Component ID."
+        },
+        {
+          "name": "bus",
+          "type": "uint8_t",
+          "description": "bus number"
+        },
+        {
+          "name": "operation",
+          "type": "uint8_t",
+          "enum": "CAN_FILTER_OP",
+          "description": "what operation to perform on the filter list. See CAN_FILTER_OP enum."
+        },
+        {
+          "name": "num_ids",
+          "type": "uint8_t",
+          "description": "number of IDs in filter list"
+        },
+        {
+          "name": "ids",
+          "type": "uint16_t[16]",
+          "description": "filter IDs, length num_ids"
+        }
+      ]
+    },
+    {
       "name": "ONBOARD_COMPUTER_STATUS",
       "id": 390,
       "description": "Hardware status sent by an onboard computer.",
@@ -30701,81 +30772,6 @@
           "type": "float",
           "units": "s",
           "description": "Maximum strobing period in seconds"
-        }
-      ]
-    },
-    {
-      "name": "CANFD_FRAME",
-      "id": 387,
-      "description": "A forwarded CANFD frame as requested by MAV_CMD_CAN_FORWARD. These are separated from CAN_FRAME as they need different handling (eg. TAO handling)",
-      "fields": [
-        {
-          "name": "target_system",
-          "type": "uint8_t",
-          "description": "System ID."
-        },
-        {
-          "name": "target_component",
-          "type": "uint8_t",
-          "description": "Component ID."
-        },
-        {
-          "name": "bus",
-          "type": "uint8_t",
-          "description": "bus number"
-        },
-        {
-          "name": "len",
-          "type": "uint8_t",
-          "description": "Frame length"
-        },
-        {
-          "name": "id",
-          "type": "uint32_t",
-          "description": "Frame ID"
-        },
-        {
-          "name": "data",
-          "type": "uint8_t[64]",
-          "description": "Frame data"
-        }
-      ]
-    },
-    {
-      "name": "CAN_FILTER_MODIFY",
-      "id": 388,
-      "description": "Modify the filter of what CAN messages to forward over the mavlink. This can be used to make CAN forwarding work well on low bandwidth links. The filtering is applied on bits 8 to 24 of the CAN id (2nd and 3rd bytes) which corresponds to the DroneCAN message ID for DroneCAN. Filters with more than 16 IDs can be constructed by sending multiple CAN_FILTER_MODIFY messages.",
-      "fields": [
-        {
-          "name": "target_system",
-          "type": "uint8_t",
-          "description": "System ID."
-        },
-        {
-          "name": "target_component",
-          "type": "uint8_t",
-          "description": "Component ID."
-        },
-        {
-          "name": "bus",
-          "type": "uint8_t",
-          "description": "bus number"
-        },
-        {
-          "name": "operation",
-          "type": "uint8_t",
-          "enum": "CAN_FILTER_OP",
-          "description": "what operation to perform on the filter list. See CAN_FILTER_OP enum."
-        },
-        {
-          "name": "num_ids",
-          "type": "uint8_t",
-          "description": "number of IDs in filter list"
-        },
-        {
-          "name": "ids",
-          "type": "uint16_t[16]",
-          "description": "filter IDs, length num_ids"
         }
       ]
     },
