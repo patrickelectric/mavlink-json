@@ -9199,6 +9199,35 @@
           ]
         },
         {
+          "name": "MAV_CMD_GUIDED_CHANGE_HEADING",
+          "value": 43002,
+          "hasLocation": "false",
+          "isDestination": "false",
+          "description": "Change to target direction at a given rate, overriding previous heading/s. This slews the vehicle at a controllable rate between its previous heading and the new one.",
+          "params": [
+            {
+              "index": "1",
+              "label": "Heading Type",
+              "enum": "HEADING_TYPE",
+              "description": "Course-over-ground or raw vehicle heading."
+            },
+            {
+              "index": "2",
+              "label": "Heading Target",
+              "units": "deg",
+              "minValue": "0",
+              "maxValue": "359.99",
+              "description": "Target heading."
+            },
+            {
+              "index": "3",
+              "label": "Heading Rate of Change",
+              "units": "deg/s",
+              "description": "Maximum centripetal acceleration, i.e. rate of change toward new heading."
+            }
+          ]
+        },
+        {
           "name": "MAV_CMD_EXTERNAL_POSITION_ESTIMATE",
           "value": 43003,
           "hasLocation": "true",
@@ -11377,6 +11406,27 @@
       ]
     },
     {
+      "name": "HEADING_TYPE",
+      "description": "Heading setpoint types used in MAV_CMD_GUIDED_CHANGE_HEADING",
+      "entries": [
+        {
+          "name": "HEADING_TYPE_COURSE_OVER_GROUND",
+          "value": 0,
+          "description": "Course over ground."
+        },
+        {
+          "name": "HEADING_TYPE_HEADING",
+          "value": 1,
+          "description": "Raw vehicle heading."
+        },
+        {
+          "name": "HEADING_TYPE_DEFAULT",
+          "value": 2,
+          "description": "Default heading."
+        }
+      ]
+    },
+    {
       "name": "ESTIMATOR_STATUS_FLAGS",
       "bitmask": "true",
       "description": "Flags in ESTIMATOR_STATUS message",
@@ -11861,6 +11911,11 @@
           "name": "VIDEO_STREAM_TYPE_MPEG_TS",
           "value": 3,
           "description": "Stream is MPEG TS (URI gives the port number)"
+        },
+        {
+          "name": "VIDEO_STREAM_TYPE_WHEP",
+          "value": 4,
+          "description": "Stream is WHEP (WebRTC-HTTP Egress Protocol)"
         }
       ]
     },
@@ -14339,6 +14394,11 @@
           "description": "BurstReadFile: Burst download session file"
         },
         {
+          "name": "MAV_FTP_OPCODE_LISTDIRECTORYWITHTIME",
+          "value": 16,
+          "description": "ListDirectoryWithTime: List files and directories, along with last-modification timestamps, in path from offset. This is the same as ListDirectory except for the addition of timestamps. Servers that do not support this opcode respond with a NAK (MAV_FTP_ERR_UNKNOWNCOMMAND)."
+        },
+        {
           "name": "MAV_FTP_OPCODE_ACK",
           "value": 128,
           "description": "ACK: ACK response"
@@ -15189,23 +15249,6 @@
         {
           "name": "ACCELCAL_VEHICLE_POS_FAILED",
           "value": 16777216
-        }
-      ]
-    },
-    {
-      "name": "HEADING_TYPE",
-      "entries": [
-        {
-          "name": "HEADING_TYPE_COURSE_OVER_GROUND",
-          "value": 0
-        },
-        {
-          "name": "HEADING_TYPE_HEADING",
-          "value": 1
-        },
-        {
-          "name": "HEADING_TYPE_DEFAULT",
-          "value": 2
         }
       ]
     },
@@ -28178,7 +28221,7 @@
     {
       "name": "CELLULAR_STATUS",
       "id": 334,
-      "description": "Report current used cellular network status",
+      "description": "Cellular network status as reported by a particular modem. This is primarily intended for logging, but a GCS may choose to display link_tx_rate and link_rx_rate. Note that a value of 0 in the id field indicates that the sender does not support reporting of multiple modems. Message data should be from a single modem, but that is not guaranteed.",
       "fields": [
         {
           "name": "status",
@@ -28221,6 +28264,91 @@
           "type": "uint16_t",
           "invalid": "0",
           "description": "Location area code. If unknown, set to 0"
+        },
+        {
+          "name": "id",
+          "type": "uint8_t",
+          "instance": "true",
+          "minValue": "1",
+          "description": "Cellular modem instance number. Indexed from 1.",
+          "extension": true
+        },
+        {
+          "name": "link_tx_rate",
+          "type": "uint32_t",
+          "units": "KiB/s",
+          "invalid": "0",
+          "description": "Download rate.",
+          "extension": true
+        },
+        {
+          "name": "link_rx_rate",
+          "type": "uint32_t",
+          "units": "KiB/s",
+          "invalid": "0",
+          "description": "Upload rate.",
+          "extension": true
+        },
+        {
+          "name": "cell_tower_id",
+          "type": "char[9]",
+          "invalid": "0",
+          "description": "ID of the currently connected cell tower. This must be NULL terminated if the length is less than 9 human-readable chars, and without the null termination (NULL) byte if the length is exactly 9 chars.",
+          "extension": true
+        },
+        {
+          "name": "band_number",
+          "type": "uint8_t",
+          "invalid": "0",
+          "description": "LTE frequency band number.",
+          "extension": true
+        },
+        {
+          "name": "band_frequency",
+          "type": "float",
+          "units": "MHz",
+          "invalid": "0",
+          "description": "LTE radio frequency.",
+          "extension": true
+        },
+        {
+          "name": "channel_number",
+          "type": "uint32_t",
+          "invalid": "0",
+          "description": "The channel number (CN). Absolute radio-frequency (ARFCN) / E-UTRA (EARFCN) / UTRA (UARFCN) / New radio (NR_CH).",
+          "extension": true
+        },
+        {
+          "name": "rx_level",
+          "type": "float",
+          "units": "dBm",
+          "invalid": "0",
+          "description": "On 3G is Received Signal Code Power (RSCP). On LTE is Reference Signal Received Power (RSRP). On 5G is New Radio Reference Signal Received Power (NR_RSRP).",
+          "extension": true
+        },
+        {
+          "name": "tx_level",
+          "type": "float",
+          "units": "dBm",
+          "invalid": "0",
+          "description": "Transmitter (modem) signal absolute power level.",
+          "extension": true
+        },
+        {
+          "name": "rx_quality",
+          "type": "float",
+          "units": "dBm",
+          "invalid": "0",
+          "description": "On 3G is Receiver Quality (RxQual). On LTE is Reference Signal Received Quality (RSRQ). On 5G is New Radio Reference Signal Received Quality (NR_RSRQ).",
+          "extension": true
+        },
+        {
+          "name": "sinr",
+          "type": "float",
+          "units": "dB",
+          "invalid": "0",
+          "description": "Signal to interference plus noise ratio (SINR).",
+          "extension": true
         }
       ]
     },
