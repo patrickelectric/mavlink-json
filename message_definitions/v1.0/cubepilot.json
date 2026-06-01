@@ -2029,6 +2029,11 @@
           "name": "MAV_MOUNT_MODE_HOME_LOCATION",
           "value": 6,
           "description": "Gimbal tracks home position"
+        },
+        {
+          "name": "MAV_MOUNT_MODE_WPNEXT_OFFSET",
+          "value": 7,
+          "description": "Gimbal tracks next waypoint location with offset"
         }
       ]
     },
@@ -3382,7 +3387,7 @@
             {
               "index": "4",
               "label": "Xtrack Location",
-              "description": "Loiter circle exit location and/or path to next waypoint (\"xtrack\") for forward-only moving vehicles (not multicopters). 0 for the vehicle to converge towards the center xtrack when it leaves the loiter (the line between the centers of the current and next waypoint), 1 to converge to the direct line between the location that the vehicle exits the loiter radius and the next waypoint. Otherwise the angle (in degrees) between the tangent of the loiter circle and the center xtrack at which the vehicle must leave the loiter (and converge to the center xtrack). NaN to use the current system default xtrack behaviour."
+              "description": "Loiter circle exit location and/or path to next waypoint (\"xtrack\") for forward-only moving vehicles (not multicopters). 0 for the vehicle to converge towards the center xtrack when it leaves the loiter (the line between the centers of the current and next waypoint), 1 to converge to the direct line between the location that the vehicle exits the loiter radius and the next waypoint. NaN to use the current system default xtrack behaviour."
             },
             {
               "index": "5",
@@ -3431,7 +3436,7 @@
             {
               "index": "4",
               "label": "Xtrack Location",
-              "description": "Loiter circle exit location and/or path to next waypoint (\"xtrack\") for forward-only moving vehicles (not multicopters). 0 for the vehicle to converge towards the center xtrack when it leaves the loiter (the line between the centers of the current and next waypoint), 1 to converge to the direct line between the location that the vehicle exits the loiter radius and the next waypoint. Otherwise the angle (in degrees) between the tangent of the loiter circle and the center xtrack at which the vehicle must leave the loiter (and converge to the center xtrack). NaN to use the current system default xtrack behaviour."
+              "description": "Loiter circle exit location and/or path to next waypoint (\"xtrack\") for forward-only moving vehicles (not multicopters). 0 for the vehicle to converge towards the center xtrack when it leaves the loiter (the line between the centers of the current and next waypoint), 1 to converge to the direct line between the location that the vehicle exits the loiter radius and the next waypoint. NaN to use the current system default xtrack behaviour."
             },
             {
               "index": "5",
@@ -3805,7 +3810,7 @@
               "minValue": "0",
               "maxValue": "1",
               "increment": "1",
-              "description": "Loiter circle exit location and/or path to next waypoint (\"xtrack\") for forward-only moving vehicles (not multicopters). 0 for the vehicle to converge towards the center xtrack when it leaves the loiter (the line between the centers of the current and next waypoint), 1 to converge to the direct line between the location that the vehicle exits the loiter radius and the next waypoint. Otherwise the angle (in degrees) between the tangent of the loiter circle and the center xtrack at which the vehicle must leave the loiter (and converge to the center xtrack). NaN to use the current system default xtrack behaviour."
+              "description": "Loiter circle exit location and/or path to next waypoint (\"xtrack\") for forward-only moving vehicles (not multicopters). 0 for the vehicle to converge towards the center xtrack when it leaves the loiter (the line between the centers of the current and next waypoint), 1 to converge to the direct line between the location that the vehicle exits the loiter radius and the next waypoint. NaN to use the current system default xtrack behaviour."
             },
             {
               "index": "5",
@@ -15163,7 +15168,7 @@
     {
       "name": "SET_MODE",
       "id": 11,
-      "description": "Set the system mode, as defined by enum MAV_MODE. There is no target component id as the mode is by definition for the overall aircraft, not only for one component.",
+      "description": "Set the system mode, as defined by enum MAV_MODE_FLAG. There is no target component id as the mode is by definition for the overall aircraft, not only for one component.",
       "fields": [
         {
           "name": "target_system",
@@ -15173,7 +15178,7 @@
         {
           "name": "base_mode",
           "type": "uint8_t",
-          "enum": "MAV_MODE",
+          "enum": "MAV_MODE_FLAG",
           "description": "The new base mode."
         },
         {
@@ -24455,8 +24460,8 @@
           "name": "angular_velocity_z",
           "type": "float",
           "units": "rad/s",
-          "invalid": "NaN",
-          "description": "Z component of angular velocity in NED (North, East, Down). NaN if unknown.",
+          "invalid": "0",
+          "description": "Z component of angular velocity in NED (North, East, Down). 0 if unknown. Use 0.00001 to represent a measured value of zero.",
           "extension": true
         }
       ]
