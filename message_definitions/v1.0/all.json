@@ -5230,7 +5230,6 @@
           "hasLocation": "true",
           "isDestination": "false",
           "description": "Mission item to specify the start of a failsafe/landing return-path segment (the end of the segment is the next MAV_CMD_DO_LAND_START item). A vehicle that is using missions for landing (e.g. in a return mode) will join the mission on the closest path of the return-path segment (instead of MAV_CMD_DO_LAND_START or the nearest waypoint). The main use case is to minimize the failsafe flight path in corridor missions, where the inbound/outbound paths are constrained (by geofences) to the same particular path. The MAV_CMD_NAV_RETURN_PATH_START would be placed at the start of the return path. If a failsafe occurs on the outbound path the vehicle will move to the nearest point on the return path (which is parallel for this kind of mission), effectively turning round and following the shortest path to landing. If a failsafe occurs on the inbound path the vehicle is already on the return segment and will continue to landing. The Latitude/Longitude/Altitude are optional, and may be set to 0 if not needed. If specified, the item defines the waypoint at which the return segment starts. If sent using as a command, the vehicle will perform a mission landing (using the land segment if defined) or reject the command if mission landings are not supported, or no mission landing is defined. When used as a command any position information in the command is ignored.",
-          "wip": true,
           "params": [
             {
               "index": "1",
@@ -14055,12 +14054,29 @@
           "value": 5
         },
         {
-          "name": "MAG_CAL_BAD_ORIENTATION",
-          "value": 6
+          "name": "MAG_CAL_FAILED_ORIENTATION",
+          "value": 6,
+          "description": "Compass calibration failed: the vehicle orientation is outside the required tolerance."
         },
         {
-          "name": "MAG_CAL_BAD_RADIUS",
-          "value": 7
+          "name": "MAG_CAL_FAILED_RADIUS",
+          "value": 7,
+          "description": "Compass calibration failed: the radius of the fitted sphere is unrealistically small or large."
+        },
+        {
+          "name": "MAG_CAL_FAILED_OFFSETS",
+          "value": 8,
+          "description": "Compass calibration failed: offset magnitude too large."
+        },
+        {
+          "name": "MAG_CAL_FAILED_DIAG_SCALING",
+          "value": 9,
+          "description": "Compass calibration failed: diagonal or off-diagonal scaling values out of valid range."
+        },
+        {
+          "name": "MAG_CAL_FAILED_RESIDUALS_HIGH",
+          "value": 10,
+          "description": "Compass calibration failed: fitness (RMS residual) exceeds tolerance."
         }
       ]
     },
@@ -18567,21 +18583,21 @@
           "type": "uint16_t",
           "units": "mV",
           "invalid": "UINT16_MAX",
-          "description": "Battery voltage, UINT16_MAX: Voltage not sent by autopilot"
+          "description": "Battery voltage, UINT16_MAX: Voltage not sent by autopilot. Value is ambiguous on multi-battery systems. BATTERY_STATUS is a recommended alternative."
         },
         {
           "name": "current_battery",
           "type": "int16_t",
           "units": "cA",
           "invalid": "-1",
-          "description": "Battery current, -1: Current not sent by autopilot"
+          "description": "Battery current, -1: Current not sent by autopilot. Value may overflow/rollover for very high currents (> 327.67A). Value is ambiguous on multi-battery systems. BATTERY_STATUS is a recommended alternative."
         },
         {
           "name": "battery_remaining",
           "type": "int8_t",
           "units": "%",
           "invalid": "-1",
-          "description": "Battery energy remaining, -1: Battery remaining energy not sent by autopilot"
+          "description": "Battery energy remaining, -1: Battery remaining energy not sent by autopilot. Value is ambiguous on multi-battery systems. BATTERY_STATUS is a recommended alternative."
         },
         {
           "name": "drop_rate_comm",
@@ -24952,7 +24968,7 @@
           "type": "int16_t",
           "units": "cA",
           "invalid": "-1",
-          "description": "Battery current, -1: autopilot does not measure the current"
+          "description": "Battery current, -1: autopilot does not measure the current. Value may overflow/rollover for very high currents (> 327.67A)"
         },
         {
           "name": "current_consumed",
@@ -30639,7 +30655,7 @@
     {
       "name": "PLAY_TUNE_V2",
       "id": 400,
-      "description": "Play vehicle tone/tune (buzzer). Supersedes message PLAY_TUNE.",
+      "description": "Play vehicle tone/tune (buzzer). Supported tunes can be determined using SUPPORTED_TUNES. Supersedes message PLAY_TUNE.",
       "fields": [
         {
           "name": "target_system",
@@ -30667,7 +30683,7 @@
     {
       "name": "SUPPORTED_TUNES",
       "id": 401,
-      "description": "Tune formats supported by vehicle. This should be emitted as response to MAV_CMD_REQUEST_MESSAGE.",
+      "description": "Tune formats supported by vehicle, i.e. via PLAY_TUNE_V2. This should be emitted as response to MAV_CMD_REQUEST_MESSAGE.",
       "fields": [
         {
           "name": "target_system",
