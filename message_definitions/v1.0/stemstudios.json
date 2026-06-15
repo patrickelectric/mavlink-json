@@ -10419,9 +10419,59 @@
           "description": "Second GPS port"
         },
         {
+          "name": "SERIAL_CONTROL_DEV_TELEM3",
+          "value": 4,
+          "description": "Third telemetry port"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_TELEM4",
+          "value": 5,
+          "description": "Fourth telemetry port"
+        },
+        {
           "name": "SERIAL_CONTROL_DEV_SHELL",
           "value": 10,
           "description": "system shell"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC0",
+          "value": 20,
+          "description": "Electronic Speed Controller 0"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC1",
+          "value": 21,
+          "description": "Electronic Speed Controller 1"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC2",
+          "value": 22,
+          "description": "Electronic Speed Controller 2"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC3",
+          "value": 23,
+          "description": "Electronic Speed Controller 3"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC4",
+          "value": 24,
+          "description": "Electronic Speed Controller 4"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC5",
+          "value": 25,
+          "description": "Electronic Speed Controller 5"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC6",
+          "value": 26,
+          "description": "Electronic Speed Controller 6"
+        },
+        {
+          "name": "SERIAL_CONTROL_DEV_ESC7",
+          "value": 27,
+          "description": "Electronic Speed Controller 7"
         },
         {
           "name": "SERIAL_CONTROL_SERIAL0",
