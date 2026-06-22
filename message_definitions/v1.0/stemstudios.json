@@ -9203,6 +9203,55 @@
           ]
         },
         {
+          "name": "MAV_CMD_GUIDED_CHANGE_SPEED",
+          "value": 43000,
+          "hasLocation": "false",
+          "isDestination": "false",
+          "description": "Change flight speed at a given rate. This slews the vehicle at a controllable rate between it's previous speed and the new one.",
+          "params": [
+            {
+              "index": "1",
+              "label": "speed type",
+              "enum": "SPEED_TYPE",
+              "description": "Airspeed or groundspeed."
+            },
+            {
+              "index": "2",
+              "label": "speed target",
+              "units": "m/s",
+              "description": "Target Speed"
+            },
+            {
+              "index": "3",
+              "label": "speed rate-of-change",
+              "units": "m/s/s",
+              "description": "Acceleration rate, 0 to take effect instantly"
+            }
+          ]
+        },
+        {
+          "name": "MAV_CMD_GUIDED_CHANGE_ALTITUDE",
+          "value": 43001,
+          "hasLocation": "false",
+          "isDestination": "false",
+          "description": "Change target altitude at a given rate. This slews the vehicle at a controllable rate between it's previous altitude and the new one.",
+          "params": [
+            {
+              "index": "3",
+              "label": "alt rate-of-change",
+              "units": "m/s",
+              "minValue": "0",
+              "description": "Rate of change, toward new altitude. 0 for maximum rate change. Positive numbers only, as negative numbers will not converge on the new target alt."
+            },
+            {
+              "index": "7",
+              "label": "target alt",
+              "units": "m",
+              "description": "Target Altitude"
+            }
+          ]
+        },
+        {
           "name": "MAV_CMD_GUIDED_CHANGE_HEADING",
           "value": 43002,
           "hasLocation": "false",
@@ -22702,7 +22751,7 @@
           "name": "tslc",
           "type": "uint8_t",
           "units": "s",
-          "description": "Time since last communication from the remote vehicle, in seconds."
+          "description": "Time since last communication. This is the age of the ADS-B information in this message, in seconds."
         },
         {
           "name": "flags",
@@ -25069,7 +25118,7 @@
           "name": "tslc",
           "type": "uint16_t",
           "units": "s",
-          "description": "Time since last communication from the vessel, in seconds"
+          "description": "Time since last communication. This is the age of the AIS information in this message, in seconds."
         },
         {
           "name": "flags",
