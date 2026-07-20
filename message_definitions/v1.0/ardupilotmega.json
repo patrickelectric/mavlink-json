@@ -1281,17 +1281,17 @@
         {
           "name": "MAV_PROTOCOL_CAPABILITY_SET_ATTITUDE_TARGET",
           "value": 64,
-          "description": "Autopilot supports commanding attitude offboard."
+          "description": "Autopilot supports the SET_ATTITUDE_TARGET message (for commanding attitude from an offboard controller)."
         },
         {
           "name": "MAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_LOCAL_NED",
           "value": 128,
-          "description": "Autopilot supports commanding position and velocity targets in local NED frame."
+          "description": "Autopilot supports the SET_POSITION_TARGET_LOCAL_NED message (for commanding position and velocity targets in local NED frame)."
         },
         {
           "name": "MAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_GLOBAL_INT",
           "value": 256,
-          "description": "Autopilot supports commanding position and velocity targets in global scaled integers."
+          "description": "Autopilot supports the SET_POSITION_TARGET_GLOBAL_INT message (for commanding position and velocity targets in global scaled integers)."
         },
         {
           "name": "MAV_PROTOCOL_CAPABILITY_TERRAIN",
@@ -1738,6 +1738,26 @@
           "name": "MAV_SYS_STATUS_SENSOR_LEAK",
           "value": 2,
           "description": "0x02 Leak detection"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_GYRO3",
+          "value": 4,
+          "description": "0x04 3rd 3D gyro"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_ACCEL3",
+          "value": 8,
+          "description": "0x08 3rd 3D accelerometer"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_GYRO4",
+          "value": 16,
+          "description": "0x10 4th 3D gyro"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_ACCEL4",
+          "value": 32,
+          "description": "0x20 4th 3D accelerometer"
         }
       ]
     },
@@ -12101,14 +12121,12 @@
         {
           "name": "CAMERA_TRACKING_STATUS_FLAGS_MTI",
           "value": 4,
-          "description": "Camera Moving Target Indicators (MTI) are active",
-          "wip": true
+          "description": "Camera Moving Target Indicators (MTI) are active"
         },
         {
           "name": "CAMERA_TRACKING_STATUS_FLAGS_COASTING",
           "value": 8,
-          "description": "Camera tracking target is obscured and is being predicted",
-          "wip": true
+          "description": "Camera tracking target is obscured and is being predicted"
         }
       ]
     },
@@ -14020,6 +14038,11 @@
           "name": "FAILURE_UNIT_SYSTEM_ESC",
           "value": 106,
           "description": "Interrupts the telemetry reported by the ESC."
+        },
+        {
+          "name": "FAILURE_UNIT_SYSTEM_TRAFFIC_AVOIDANCE",
+          "value": 107,
+          "description": "Traffic avoidance system like ADS-B or FLARM."
         }
       ]
     },
@@ -14066,6 +14089,11 @@
           "name": "FAILURE_TYPE_INTERMITTENT",
           "value": 7,
           "description": "Unit is sometimes working, sometimes not."
+        },
+        {
+          "name": "FAILURE_TYPE_DRIFT",
+          "value": 8,
+          "description": "Unit is publishing plausible values but drifting away from true values."
         }
       ]
     },
@@ -16976,11 +17004,6 @@
           "name": "COPTER_MODE_TURTLE",
           "value": 28,
           "description": "TURTLE"
-        },
-        {
-          "name": "COPTER_MODE_RATE_ACRO",
-          "value": 29,
-          "description": "RATE_ACRO"
         }
       ]
     },
@@ -31771,7 +31794,7 @@
           "name": "txbuf",
           "type": "uint8_t",
           "units": "%",
-          "description": "How full the tx buffer is."
+          "description": "Remaining free transmitter buffer space."
         },
         {
           "name": "noise",

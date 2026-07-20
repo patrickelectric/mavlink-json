@@ -1281,17 +1281,17 @@
         {
           "name": "MAV_PROTOCOL_CAPABILITY_SET_ATTITUDE_TARGET",
           "value": 64,
-          "description": "Autopilot supports commanding attitude offboard."
+          "description": "Autopilot supports the SET_ATTITUDE_TARGET message (for commanding attitude from an offboard controller)."
         },
         {
           "name": "MAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_LOCAL_NED",
           "value": 128,
-          "description": "Autopilot supports commanding position and velocity targets in local NED frame."
+          "description": "Autopilot supports the SET_POSITION_TARGET_LOCAL_NED message (for commanding position and velocity targets in local NED frame)."
         },
         {
           "name": "MAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_GLOBAL_INT",
           "value": 256,
-          "description": "Autopilot supports commanding position and velocity targets in global scaled integers."
+          "description": "Autopilot supports the SET_POSITION_TARGET_GLOBAL_INT message (for commanding position and velocity targets in global scaled integers)."
         },
         {
           "name": "MAV_PROTOCOL_CAPABILITY_TERRAIN",
