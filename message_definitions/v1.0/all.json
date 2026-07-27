@@ -37118,7 +37118,7 @@
         {
           "name": "length",
           "type": "uint8_t",
-          "maxValue": "222",
+          "maxValue": "192",
           "description": "Number of valid bytes in data array."
         },
         {
