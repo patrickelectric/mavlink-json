@@ -3144,27 +3144,6 @@
       ]
     },
     {
-      "name": "PREFLIGHT_STORAGE_MISSION_ACTION",
-      "description": "Actions for reading and writing plan information (mission, rally points, geofence) between persistent and volatile storage when using MAV_CMD_PREFLIGHT_STORAGE. (Commonly missions are loaded from persistent storage (flash/EEPROM) into volatile storage (RAM) on startup and written back when they are changed.)",
-      "entries": [
-        {
-          "name": "MISSION_READ_PERSISTENT",
-          "value": 0,
-          "description": "Read current mission data from persistent storage"
-        },
-        {
-          "name": "MISSION_WRITE_PERSISTENT",
-          "value": 1,
-          "description": "Write current mission data to persistent storage"
-        },
-        {
-          "name": "MISSION_RESET_DEFAULT",
-          "value": 2,
-          "description": "Erase all mission data stored on the vehicle (both persistent and volatile storage)"
-        }
-      ]
-    },
-    {
       "name": "REBOOT_SHUTDOWN_ACTION",
       "description": "Reboot/shutdown action for selected component in MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN.",
       "entries": [
@@ -6781,9 +6760,7 @@
             },
             {
               "index": "2",
-              "label": "Mission Storage",
-              "enum": "PREFLIGHT_STORAGE_MISSION_ACTION",
-              "description": "Action to perform on the persistent mission storage"
+              "description": "Reserved"
             },
             {
               "index": "3",
@@ -17782,6 +17759,32 @@
           "name": "ESTIMATOR_SENSOR_FUSION_SOURCE_RANGING_BEACON",
           "value": 8,
           "description": "Ranging Beacon"
+        }
+      ]
+    },
+    {
+      "name": "MAV_MANUAL_INPUT_SOURCE",
+      "description": "Source of manual control input currently selected by the autopilot's manual control arbitration.",
+      "entries": [
+        {
+          "name": "MAV_MANUAL_INPUT_SOURCE_NONE",
+          "value": 0,
+          "description": "No manual input messages are currently being provided."
+        },
+        {
+          "name": "MAV_MANUAL_INPUT_SOURCE_RC",
+          "value": 1,
+          "description": "Manual input messages are being provided by a radio control (RC) receiver."
+        },
+        {
+          "name": "MAV_MANUAL_INPUT_SOURCE_MAVLINK",
+          "value": 2,
+          "description": "Manual input messages are being provided by a MAVLink enabled input device (e.g. via MANUAL_CONTROL messages). The specific device is identified by the sender_system_id and sender_component_id fields."
+        },
+        {
+          "name": "MAV_MANUAL_INPUT_SOURCE_MIXED",
+          "value": 3,
+          "description": "Manual input messages are being provided simultaneously by both a radio control (RC) receiver and a MAVLink enabled input device."
         }
       ]
     },
@@ -37251,6 +37254,30 @@
           "type": "float[9]",
           "invalid": "[NaN]",
           "description": "Per-source normalized innovation test ratio. NaN if not available."
+        }
+      ]
+    },
+    {
+      "name": "MANUAL_INPUT_STATUS",
+      "id": 515,
+      "description": "Status of the manual control input arbitration on the autopilot: which source is currently active and, when a MAVLink enabled input device is selected, which system/component is providing it. Emitted by the autopilot for ground stations to display the active manual control source.",
+      "wip": true,
+      "fields": [
+        {
+          "name": "source",
+          "type": "uint8_t",
+          "enum": "MAV_MANUAL_INPUT_SOURCE",
+          "description": "Current manual control source active."
+        },
+        {
+          "name": "sender_system_id",
+          "type": "uint8_t",
+          "description": "System ID of the MAVLink enabled input device currently providing manual control. Set whenever a MAVLink enabled input device is contributing, i.e. for both MAV_MANUAL_INPUT_SOURCE_MAVLINK and MAV_MANUAL_INPUT_SOURCE_MIXED. 0 otherwise."
+        },
+        {
+          "name": "sender_component_id",
+          "type": "uint8_t",
+          "description": "Component ID of the MAVLink enabled input device currently providing manual control. Set whenever a MAVLink enabled input device is contributing, i.e. for both MAV_MANUAL_INPUT_SOURCE_MAVLINK and MAV_MANUAL_INPUT_SOURCE_MIXED. 0 otherwise."
         }
       ]
     },
