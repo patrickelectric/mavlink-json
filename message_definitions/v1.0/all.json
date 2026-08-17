@@ -1758,6 +1758,16 @@
           "name": "MAV_SYS_STATUS_SENSOR_3D_ACCEL4",
           "value": 32,
           "description": "0x20 4th 3D accelerometer"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_MAG3",
+          "value": 64,
+          "description": "0x40 3rd 3D magnetometer"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_MAG4",
+          "value": 128,
+          "description": "0x80 4th 3D magnetometer"
         }
       ]
     },
@@ -5641,6 +5651,8 @@
         {
           "name": "MAV_CMD_DO_SET_ROI_SYSID",
           "value": 198,
+          "hasLocation": "false",
+          "isDestination": "false",
           "description": "Mount tracks system with specified system ID. Determination of target vehicle position may be done with GLOBAL_POSITION_INT or any other means. This command can be sent to a gimbal manager but not to a gimbal device. A gimbal device is not to react to this message.",
           "params": [
             {
@@ -7235,6 +7247,8 @@
         {
           "name": "MAV_CMD_INJECT_FAILURE",
           "value": 420,
+          "hasLocation": "false",
+          "isDestination": "false",
           "description": "Inject artificial failure for testing purposes. Note that autopilots should implement an additional protection before accepting this command such as a specific param setting.",
           "params": [
             {
@@ -9149,6 +9163,8 @@
         {
           "name": "MAV_CMD_FIXED_MAG_CAL_YAW",
           "value": 42006,
+          "hasLocation": "false",
+          "isDestination": "false",
           "description": "Magnetometer calibration based on provided known yaw. This allows for fast calibration using WMM field tables in the vehicle, given only the known yaw of the vehicle. If Latitude and longitude are both zero then use the current vehicle location.",
           "params": [
             {
@@ -17785,6 +17801,214 @@
           "name": "MAV_MANUAL_INPUT_SOURCE_MIXED",
           "value": 3,
           "description": "Manual input messages are being provided simultaneously by both a radio control (RC) receiver and a MAVLink enabled input device."
+        }
+      ]
+    },
+    {
+      "name": "EFI_PERFORMANCE_STATUS_FLAGS",
+      "bitmask": "true",
+      "description": "Status flags for the EFI Electronic Control Unit (ECU). Reported in EFI_PERFORMANCE. Each bit is an independent boolean condition. A flag that is 0 means either \"not asserted\" or \"not supported by this ECU\"; the two cannot be distinguished from the bitmask alone.",
+      "wip": true,
+      "entries": [
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ENGINE_RUNNING",
+          "value": 1,
+          "description": "Engine is running."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_STARTER_ACTIVE",
+          "value": 2,
+          "description": "Starter motor is engaged / engine is cranking."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ENGINE_SHUTTING_DOWN",
+          "value": 4,
+          "description": "Controlled engine shutdown is in progress."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_EMERGENCY_STOP",
+          "value": 8,
+          "description": "Emergency stop has been asserted."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_REV_LIMIT_EXCEEDED",
+          "value": 16,
+          "description": "Engine rev limiter is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_FAULT",
+          "value": 32,
+          "description": "An unclassified fault (check-engine) has been detected by the ECU."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_WARNING_LEVEL_1",
+          "value": 64,
+          "description": "Severity level 1 warning is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_WARNING_LEVEL_2",
+          "value": 128,
+          "description": "Severity level 2 warning is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_MAINTENANCE_REQUIRED",
+          "value": 256,
+          "description": "ECU reports that maintenance/service is due."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_COMMS_ERROR",
+          "value": 512,
+          "description": "ECU/engine internal communication error."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_POWER_REDUCTION_ACTIVE",
+          "value": 1024,
+          "description": "ECU is limiting/reducing engine output power."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_CRANK_SENSOR_FAULT",
+          "value": 2048,
+          "description": "Crankshaft / RPM sensor has faulted."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_THROTTLE_SENSOR_FAULT",
+          "value": 4096,
+          "description": "Throttle-position sensor has faulted."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ENGINE_TEMP_SENSOR_FAULT",
+          "value": 8192,
+          "description": "Engine-temperature sensor has faulted."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_AIR_TEMP_SENSOR_FAULT",
+          "value": 16384,
+          "description": "Intake-air-temperature sensor has faulted."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_AIR_PRESSURE_SENSOR_FAULT",
+          "value": 32768,
+          "description": "Intake-air-pressure sensor has faulted."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ECU_OVER_TEMPERATURE",
+          "value": 65536,
+          "description": "ECU temperature has exceeded the warning threshold."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ENGINE_OVER_TEMPERATURE",
+          "value": 131072,
+          "description": "Engine temperature has exceeded the fault threshold (overheating)."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ENGINE_TEMP_ABOVE_NOMINAL",
+          "value": 262144,
+          "description": "Engine temperature is above nominal (warning)."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_ENGINE_TEMP_BELOW_NOMINAL",
+          "value": 524288,
+          "description": "Engine temperature is below nominal (not yet warmed up)."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_EGT_ABOVE_NOMINAL",
+          "value": 1048576,
+          "description": "Exhaust-gas temperature is above nominal."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_LOW_COOLANT_LEVEL",
+          "value": 2097152,
+          "description": "Coolant level is low."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_COOLANT_FLOW_FAULT",
+          "value": 4194304,
+          "description": "Coolant water-flow fault."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_FUEL_PUMP_ACTIVE",
+          "value": 8388608,
+          "description": "Fuel pump is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_LOW_FUEL_PRESSURE",
+          "value": 16777216,
+          "description": "Fuel pressure is below the minimum operating threshold."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_HIGH_FUEL_PRESSURE",
+          "value": 33554432,
+          "description": "Fuel pressure is above the maximum operating threshold."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_WATER_IN_FUEL",
+          "value": 67108864,
+          "description": "Water has been detected in the fuel."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_LOW_OIL_PRESSURE",
+          "value": 134217728,
+          "description": "Oil pressure is below the minimum operating threshold."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_HIGH_OIL_PRESSURE",
+          "value": 268435456,
+          "description": "Oil pressure is above the maximum operating threshold."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_LOW_OIL_LEVEL",
+          "value": 536870912,
+          "description": "Oil level is low."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_IGNITION_ACTIVE",
+          "value": 1073741824,
+          "description": "Ignition system is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_IGNITION_REDUNDANCY_LOST",
+          "value": 2147483648,
+          "description": "Redundant (dual) ignition degraded - only one spark source is firing."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_PREHEAT_ACTIVE",
+          "value": 4294967296,
+          "description": "Glow/preheat is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_LOW_SUPPLY_VOLTAGE",
+          "value": 8589934592,
+          "description": "ECU supply/system voltage is low."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_CHARGING_ACTIVE",
+          "value": 17179869184,
+          "description": "Alternator/charging system is active."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_DETONATION_OBSERVED",
+          "value": 34359738368,
+          "description": "Detonation/knock has been observed."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_MISFIRE_OBSERVED",
+          "value": 68719476736,
+          "description": "Misfire has been observed."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_DEBRIS_DETECTED",
+          "value": 137438953472,
+          "description": "Foreign debris has been detected."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_HIGH_BOOST_PRESSURE",
+          "value": 274877906944,
+          "description": "Boost pressure is above threshold."
+        },
+        {
+          "name": "EFI_PERFORMANCE_STATUS_FLAGS_EGR_SYSTEM_FAULT",
+          "value": 549755813888,
+          "description": "Exhaust-gas-recirculation (EGR) system fault."
         }
       ]
     },
@@ -31032,6 +31256,12 @@
           "name": "mode_name",
           "type": "char[35]",
           "description": "Name of custom mode, with null termination character. Should be omitted for standard modes."
+        },
+        {
+          "name": "seq",
+          "type": "uint8_t",
+          "description": "Sequence number. The value iterates sequentially whenever the set of AVAILABLE_MODES changes and should match value of AVAILABLE_MODES_MONITOR. Note, a GCS must ignore 0 values, and should re-start the download if the value changes part-way through fetching modes.",
+          "extension": true
         }
       ]
     },
@@ -31067,7 +31297,7 @@
         {
           "name": "seq",
           "type": "uint8_t",
-          "description": "Sequence number. The value iterates sequentially whenever AVAILABLE_MODES changes (e.g. support for a new mode is added/removed dynamically)."
+          "description": "Sequence number. Iterates sequentially whenever AVAILABLE_MODES changes (e.g. support for a new mode is added/removed dynamically). 0 initially. 1 on first change of mode set."
         }
       ]
     },
@@ -37278,6 +37508,161 @@
           "name": "sender_component_id",
           "type": "uint8_t",
           "description": "Component ID of the MAVLink enabled input device currently providing manual control. Set whenever a MAVLink enabled input device is contributing, i.e. for both MAV_MANUAL_INPUT_SOURCE_MAVLINK and MAV_MANUAL_INPUT_SOURCE_MIXED. 0 otherwise."
+        }
+      ]
+    },
+    {
+      "name": "EFI_PERFORMANCE",
+      "id": 442,
+      "description": "EFI performance and health telemetry. Primarily intended for debugging EFI system faults to determine whether problems are within the engine, fuel pump, actuators, or the ECU. Nominal stream rate is 1 Hz. Core engine telemetry (RPM, temperatures, pressures, fuel flow) is carried in EFI_STATUS; this message carries the electrical/actuator/diagnostic data not present there.",
+      "wip": true,
+      "fields": [
+        {
+          "name": "ecu_index",
+          "type": "uint8_t",
+          "instance": "true",
+          "description": "Electronic Control Unit (ECU) index for systems with multiple EFI units. Set to 0 for the first (or only) ECU."
+        },
+        {
+          "name": "fuel_pump_duty_cycle",
+          "type": "uint8_t",
+          "units": "%",
+          "minValue": "0",
+          "maxValue": "100",
+          "invalid": "UINT8_MAX",
+          "description": "Fuel pump power output, as a percentage of maximum. 0 = off, 100 = full power."
+        },
+        {
+          "name": "fuel_pump_voltage",
+          "type": "uint16_t",
+          "units": "mV",
+          "invalid": "UINT16_MAX",
+          "description": "Fuel pump supply voltage."
+        },
+        {
+          "name": "fuel_pump_current",
+          "type": "uint16_t",
+          "units": "cA",
+          "invalid": "UINT16_MAX",
+          "description": "Fuel pump current draw."
+        },
+        {
+          "name": "ecu_supply_voltage",
+          "type": "uint16_t",
+          "units": "mV",
+          "invalid": "UINT16_MAX",
+          "description": "ECU supply voltage."
+        },
+        {
+          "name": "ecu_current",
+          "type": "uint16_t",
+          "units": "cA",
+          "invalid": "UINT16_MAX",
+          "description": "ECU current draw."
+        },
+        {
+          "name": "ecu_temperature",
+          "type": "int16_t",
+          "units": "cdegC",
+          "invalid": "INT16_MAX",
+          "description": "ECU/electronics board temperature."
+        },
+        {
+          "name": "ecu_cpu_load",
+          "type": "uint8_t",
+          "units": "%",
+          "minValue": "0",
+          "maxValue": "100",
+          "invalid": "UINT8_MAX",
+          "description": "ECU processor load."
+        },
+        {
+          "name": "servo_supply_voltage",
+          "type": "uint16_t",
+          "units": "mV",
+          "invalid": "UINT16_MAX",
+          "description": "Throttle-servo / actuator supply voltage."
+        },
+        {
+          "name": "servo_output_level",
+          "type": "uint8_t",
+          "units": "%",
+          "minValue": "0",
+          "maxValue": "100",
+          "invalid": "UINT8_MAX",
+          "description": "Electronic-throttle / servo commanded output level."
+        },
+        {
+          "name": "water_pump_duty_cycle",
+          "type": "uint8_t",
+          "units": "%",
+          "minValue": "0",
+          "maxValue": "100",
+          "invalid": "UINT8_MAX",
+          "description": "Coolant-pump power output, as a percentage of maximum."
+        },
+        {
+          "name": "injector_duty_cycle",
+          "type": "uint8_t",
+          "units": "%",
+          "minValue": "0",
+          "maxValue": "100",
+          "invalid": "UINT8_MAX",
+          "description": "Primary injector duty cycle."
+        },
+        {
+          "name": "fuel_mass_rate",
+          "type": "float",
+          "units": "g/min",
+          "invalid": "NaN",
+          "description": "Instantaneous fuel consumption by mass. NaN if not provided."
+        },
+        {
+          "name": "commanded_rpm",
+          "type": "float",
+          "units": "rpm",
+          "invalid": "NaN",
+          "description": "Governor/target RPM setpoint."
+        },
+        {
+          "name": "engine_runtime",
+          "type": "uint32_t",
+          "units": "s",
+          "invalid": "UINT32_MAX",
+          "description": "Cumulative engine run time (hobbs)."
+        },
+        {
+          "name": "error_memory_count",
+          "type": "uint8_t",
+          "invalid": "UINT8_MAX",
+          "description": "Number of faults currently stored in the ECU error memory."
+        },
+        {
+          "name": "boost_pressure",
+          "type": "float",
+          "units": "kPa",
+          "invalid": "NaN",
+          "description": "Forced-induction boost pressure. NaN if not provided."
+        },
+        {
+          "name": "coolant_pressure",
+          "type": "float",
+          "units": "kPa",
+          "invalid": "NaN",
+          "description": "Coolant-circuit pressure. NaN if not provided."
+        },
+        {
+          "name": "engine_torque",
+          "type": "int16_t",
+          "units": "%",
+          "invalid": "INT16_MAX",
+          "description": "Percent engine torque (signed; negative = motoring/braking)."
+        },
+        {
+          "name": "status_flags",
+          "type": "uint64_t",
+          "enum": "EFI_PERFORMANCE_STATUS_FLAGS",
+          "description": "EFI status flags."
         }
       ]
     },

@@ -1758,6 +1758,16 @@
           "name": "MAV_SYS_STATUS_SENSOR_3D_ACCEL4",
           "value": 32,
           "description": "0x20 4th 3D accelerometer"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_MAG3",
+          "value": 64,
+          "description": "0x40 3rd 3D magnetometer"
+        },
+        {
+          "name": "MAV_SYS_STATUS_SENSOR_3D_MAG4",
+          "value": 128,
+          "description": "0x80 4th 3D magnetometer"
         }
       ]
     },
@@ -5641,6 +5651,8 @@
         {
           "name": "MAV_CMD_DO_SET_ROI_SYSID",
           "value": 198,
+          "hasLocation": "false",
+          "isDestination": "false",
           "description": "Mount tracks system with specified system ID. Determination of target vehicle position may be done with GLOBAL_POSITION_INT or any other means. This command can be sent to a gimbal manager but not to a gimbal device. A gimbal device is not to react to this message.",
           "params": [
             {
@@ -7235,6 +7247,8 @@
         {
           "name": "MAV_CMD_INJECT_FAILURE",
           "value": 420,
+          "hasLocation": "false",
+          "isDestination": "false",
           "description": "Inject artificial failure for testing purposes. Note that autopilots should implement an additional protection before accepting this command such as a specific param setting.",
           "params": [
             {
@@ -9149,6 +9163,8 @@
         {
           "name": "MAV_CMD_FIXED_MAG_CAL_YAW",
           "value": 42006,
+          "hasLocation": "false",
+          "isDestination": "false",
           "description": "Magnetometer calibration based on provided known yaw. This allows for fast calibration using WMM field tables in the vehicle, given only the known yaw of the vehicle. If Latitude and longitude are both zero then use the current vehicle location.",
           "params": [
             {
@@ -30055,6 +30071,12 @@
           "name": "mode_name",
           "type": "char[35]",
           "description": "Name of custom mode, with null termination character. Should be omitted for standard modes."
+        },
+        {
+          "name": "seq",
+          "type": "uint8_t",
+          "description": "Sequence number. The value iterates sequentially whenever the set of AVAILABLE_MODES changes and should match value of AVAILABLE_MODES_MONITOR. Note, a GCS must ignore 0 values, and should re-start the download if the value changes part-way through fetching modes.",
+          "extension": true
         }
       ]
     },
@@ -30090,7 +30112,7 @@
         {
           "name": "seq",
           "type": "uint8_t",
-          "description": "Sequence number. The value iterates sequentially whenever AVAILABLE_MODES changes (e.g. support for a new mode is added/removed dynamically)."
+          "description": "Sequence number. Iterates sequentially whenever AVAILABLE_MODES changes (e.g. support for a new mode is added/removed dynamically). 0 initially. 1 on first change of mode set."
         }
       ]
     },
