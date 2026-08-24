@@ -375,7 +375,7 @@
         {
           "name": "MAV_MODE_FLAG_SAFETY_ARMED",
           "value": 128,
-          "description": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignore when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
+          "description": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignored when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
         },
         {
           "name": "MAV_MODE_FLAG_MANUAL_INPUT_ENABLED",
@@ -1224,7 +1224,6 @@
     },
     {
       "name": "MAV_BOOL",
-      "bitmask": "true",
       "description": "Enum used to indicate true or false (also: success or failure, enabled or disabled, active or inactive).",
       "entries": [
         {

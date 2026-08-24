@@ -375,7 +375,7 @@
         {
           "name": "MAV_MODE_FLAG_SAFETY_ARMED",
           "value": 128,
-          "description": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignore when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
+          "description": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignored when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
         },
         {
           "name": "MAV_MODE_FLAG_MANUAL_INPUT_ENABLED",
@@ -1224,7 +1224,6 @@
     },
     {
       "name": "MAV_BOOL",
-      "bitmask": "true",
       "description": "Enum used to indicate true or false (also: success or failure, enabled or disabled, active or inactive).",
       "entries": [
         {
@@ -3181,6 +3180,11 @@
           "name": "REBOOT_SHUTDOWN_ACTION_POWER_ON",
           "value": 4,
           "description": "Power on component. Do nothing if component is already powered (ACK command with MAV_RESULT_ACCEPTED)."
+        },
+        {
+          "name": "REBOOT_SHUTDOWN_ACTION_REBOOT_TO_MASS_STORAGE",
+          "value": 5,
+          "description": "Reboot component into a mass storage mode."
         }
       ]
     },
@@ -14036,6 +14040,31 @@
           "name": "FAILURE_UNIT_SYSTEM_TRAFFIC_AVOIDANCE",
           "value": 107,
           "description": "Traffic avoidance system like ADS-B or FLARM."
+        },
+        {
+          "name": "FAILURE_UNIT_DATALINK_LTE",
+          "value": 150,
+          "description": "Data link over a cellular (LTE) connection."
+        },
+        {
+          "name": "FAILURE_UNIT_DATALINK_WIFI",
+          "value": 151,
+          "description": "Data link over a Wi-Fi connection."
+        },
+        {
+          "name": "FAILURE_UNIT_DATALINK_TELEM_RADIO",
+          "value": 152,
+          "description": "Data link over a telemetry radio, e.g. a SiK radio."
+        },
+        {
+          "name": "FAILURE_UNIT_BUS_CAN",
+          "value": 200,
+          "description": "CAN bus. Instance is the bus number, e.g. 1 for CAN1."
+        },
+        {
+          "name": "FAILURE_UNIT_BUS_I2C",
+          "value": 201,
+          "description": "I2C bus. Instance is the bus number, e.g. 1 for I2C1."
         }
       ]
     },
@@ -29684,6 +29713,103 @@
           "type": "uint64_t",
           "enum": "EFI_PERFORMANCE_STATUS_FLAGS",
           "description": "EFI status flags."
+        }
+      ]
+    },
+    {
+      "name": "DISTANCE_SENSOR_INFO",
+      "id": 516,
+      "description": "Static characteristics of a distance sensor (onboard rangefinder). Measurements are sent in DISTANCE_SENSOR_V2.",
+      "wip": true,
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint8_t",
+          "instance": "true",
+          "description": "Sensor ID. Matches the id field of DISTANCE_SENSOR_V2."
+        },
+        {
+          "name": "type",
+          "type": "uint8_t",
+          "enum": "MAV_DISTANCE_SENSOR",
+          "description": "Type of distance sensor."
+        },
+        {
+          "name": "min_distance",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Minimum distance the sensor can measure."
+        },
+        {
+          "name": "max_distance",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Maximum distance the sensor can measure."
+        },
+        {
+          "name": "orientation",
+          "type": "uint8_t",
+          "enum": "MAV_SENSOR_ORIENTATION",
+          "description": "Direction the sensor faces."
+        },
+        {
+          "name": "horizontal_fov",
+          "type": "float",
+          "units": "rad",
+          "minValue": "0",
+          "invalid": "NaN",
+          "description": "Horizontal Field of View (angle) where the distance measurement is valid. NaN if unknown."
+        },
+        {
+          "name": "vertical_fov",
+          "type": "float",
+          "units": "rad",
+          "minValue": "0",
+          "invalid": "NaN",
+          "description": "Vertical Field of View (angle) where the distance measurement is valid. NaN if unknown."
+        },
+        {
+          "name": "quaternion",
+          "type": "float[4]",
+          "invalid": "[0]",
+          "description": "Quaternion of the sensor orientation in vehicle body frame (w, x, y, z order, zero-rotation is 1, 0, 0, 0). Zero-rotation is along the vehicle body x-axis. This field is required if orientation is set to MAV_SENSOR_ROTATION_CUSTOM. Set it to 0 if invalid.",
+          "extension": true
+        }
+      ]
+    },
+    {
+      "name": "DISTANCE_SENSOR_V2",
+      "id": 517,
+      "description": "Distance sensor measurement, for an onboard rangefinder described by DISTANCE_SENSOR_INFO. Streamed at the sensor update rate.",
+      "wip": true,
+      "fields": [
+        {
+          "name": "time_boot_ms",
+          "type": "uint32_t",
+          "units": "ms",
+          "description": "Timestamp (time since system boot)"
+        },
+        {
+          "name": "id",
+          "type": "uint8_t",
+          "instance": "true",
+          "description": "Sensor ID. Matches the id field of DISTANCE_SENSOR_INFO."
+        },
+        {
+          "name": "distance",
+          "type": "float",
+          "units": "m",
+          "invalid": "NaN",
+          "description": "Current distance reading. NaN if not provided."
+        },
+        {
+          "name": "signal_quality",
+          "type": "int8_t",
+          "units": "%",
+          "invalid": "INT8_MAX",
+          "description": "Signal quality (sensor-type specific). Represents the relation of the signal strength with the target reflectivity, distance, size or aspect, but normalised as a percentage. Values: [0-100], 0 = unusable signal, 100 = perfect signal. INT8_MAX = unknown/not provided."
         }
       ]
     }

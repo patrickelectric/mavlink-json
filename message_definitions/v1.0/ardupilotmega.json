@@ -375,7 +375,7 @@
         {
           "name": "MAV_MODE_FLAG_SAFETY_ARMED",
           "value": 128,
-          "description": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignore when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
+          "description": "0b10000000 MAV safety set to armed. Motors are enabled / running / can start. Ready to fly. Additional note: this flag is to be ignored when sent in the command MAV_CMD_DO_SET_MODE and MAV_CMD_COMPONENT_ARM_DISARM shall be used instead. The flag can still be used to report the armed state."
         },
         {
           "name": "MAV_MODE_FLAG_MANUAL_INPUT_ENABLED",
@@ -1224,7 +1224,6 @@
     },
     {
       "name": "MAV_BOOL",
-      "bitmask": "true",
       "description": "Enum used to indicate true or false (also: success or failure, enabled or disabled, active or inactive).",
       "entries": [
         {
@@ -3181,6 +3180,11 @@
           "name": "REBOOT_SHUTDOWN_ACTION_POWER_ON",
           "value": 4,
           "description": "Power on component. Do nothing if component is already powered (ACK command with MAV_RESULT_ACCEPTED)."
+        },
+        {
+          "name": "REBOOT_SHUTDOWN_ACTION_REBOOT_TO_MASS_STORAGE",
+          "value": 5,
+          "description": "Reboot component into a mass storage mode."
         }
       ]
     },
@@ -14036,6 +14040,31 @@
           "name": "FAILURE_UNIT_SYSTEM_TRAFFIC_AVOIDANCE",
           "value": 107,
           "description": "Traffic avoidance system like ADS-B or FLARM."
+        },
+        {
+          "name": "FAILURE_UNIT_DATALINK_LTE",
+          "value": 150,
+          "description": "Data link over a cellular (LTE) connection."
+        },
+        {
+          "name": "FAILURE_UNIT_DATALINK_WIFI",
+          "value": 151,
+          "description": "Data link over a Wi-Fi connection."
+        },
+        {
+          "name": "FAILURE_UNIT_DATALINK_TELEM_RADIO",
+          "value": 152,
+          "description": "Data link over a telemetry radio, e.g. a SiK radio."
+        },
+        {
+          "name": "FAILURE_UNIT_BUS_CAN",
+          "value": 200,
+          "description": "CAN bus. Instance is the bus number, e.g. 1 for CAN1."
+        },
+        {
+          "name": "FAILURE_UNIT_BUS_I2C",
+          "value": 201,
+          "description": "I2C bus. Instance is the bus number, e.g. 1 for I2C1."
         }
       ]
     },
