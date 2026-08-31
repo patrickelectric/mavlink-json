@@ -108,6 +108,11 @@
           "name": "MAV_AUTOPILOT_REFLEX",
           "value": 20,
           "description": "Fusion Reflex - https://fusion.engineering"
+        },
+        {
+          "name": "MAV_AUTOPILOT_FLIX",
+          "value": 21,
+          "description": "Flix quadcopter - https://quadcopter.dev"
         }
       ]
     },

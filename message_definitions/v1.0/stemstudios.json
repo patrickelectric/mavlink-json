@@ -108,6 +108,11 @@
           "name": "MAV_AUTOPILOT_REFLEX",
           "value": 20,
           "description": "Fusion Reflex - https://fusion.engineering"
+        },
+        {
+          "name": "MAV_AUTOPILOT_FLIX",
+          "value": 21,
+          "description": "Flix quadcopter - https://quadcopter.dev"
         }
       ]
     },
@@ -3754,8 +3759,7 @@
         {
           "name": "MAV_CMD_NAV_CONTINUE_AND_CHANGE_ALT",
           "value": 30,
-          "hasLocation": "false",
-          "isDestination": "true",
+          "hasAltitudeOnly": "true",
           "description": "Continue on the current course and climb/descend to specified altitude. When the altitude is reached continue to the next command (i.e., don't proceed to the next command until the desired altitude is reached.",
           "params": [
             {
@@ -4520,8 +4524,7 @@
         {
           "name": "MAV_CMD_CONDITION_CHANGE_ALT",
           "value": 113,
-          "hasLocation": "false",
-          "isDestination": "true",
+          "hasAltitudeOnly": "true",
           "description": "Ascend/descend to target altitude at specified rate. Delay mission state machine until desired altitude reached.",
           "params": [
             {
