@@ -14163,9 +14163,9 @@
           "description": "Winch motor is moving"
         },
         {
-          "name": "MAV_WINCH_STATUS_CLUTCH_ENGAGED",
+          "name": "MAV_WINCH_STATUS_CLUTCH_DISENGAGED",
           "value": 8,
-          "description": "Winch clutch is engaged allowing motor to move freely."
+          "description": "Winch clutch is disengaged. The motor is moving freely and not driving the winch."
         },
         {
           "name": "MAV_WINCH_STATUS_LOCKED",
@@ -14908,6 +14908,33 @@
           "name": "GLOBAL_POSITION_PRIMARY",
           "value": 2,
           "description": "True if the data originates from or is consumed by the primary estimator."
+        }
+      ]
+    },
+    {
+      "name": "FOLLOW_TARGET_CAP_FLAGS",
+      "bitmask": "true",
+      "description": "Bitmask indicating which fields contain valid data in a FOLLOW_TARGET message (lat/lon/alt, vel, acc, attitude_q, rates). If a bit is unset, the corresponding field(s) are zero-filled and should be ignored.",
+      "entries": [
+        {
+          "name": "FOLLOW_TARGET_CAP_FLAGS_POS",
+          "value": 1,
+          "description": "Position estimate is valid (lat/lon/alt)."
+        },
+        {
+          "name": "FOLLOW_TARGET_CAP_FLAGS_VEL",
+          "value": 2,
+          "description": "Velocity estimate is valid (vel field)."
+        },
+        {
+          "name": "FOLLOW_TARGET_CAP_FLAGS_ACCEL",
+          "value": 4,
+          "description": "Acceleration estimate is valid (acc field)."
+        },
+        {
+          "name": "FOLLOW_TARGET_CAP_FLAGS_ATT_RATES",
+          "value": 8,
+          "description": "Attitude and angular rate estimates are valid (attitude_q and rates fields)."
         }
       ]
     },
@@ -21757,7 +21784,8 @@
         {
           "name": "est_capabilities",
           "type": "uint8_t",
-          "description": "bit positions for tracker reporting capabilities (POS = 0, VEL = 1, ACCEL = 2, ATT + RATES = 3)"
+          "enum": "FOLLOW_TARGET_CAP_FLAGS",
+          "description": "Bitmask indicating which fields in this message contain valid data."
         },
         {
           "name": "lat",
@@ -21782,26 +21810,27 @@
           "type": "float[3]",
           "units": "m/s",
           "invalid": "[0]",
-          "description": "target velocity (0,0,0) for unknown"
+          "description": "Target velocity in MAV_FRAME_LOCAL_NED frame. (0,0,0) for unknown."
         },
         {
           "name": "acc",
           "type": "float[3]",
           "units": "m/s/s",
           "invalid": "[0]",
-          "description": "linear target acceleration (0,0,0) for unknown"
+          "description": "Target linear acceleration in MAV_FRAME_LOCAL_NED frame. (0,0,0) for unknown."
         },
         {
           "name": "attitude_q",
           "type": "float[4]",
           "invalid": "[0]",
-          "description": "(0 0 0 0 for unknown)"
+          "description": "Target orientation as a quaternion rotating from MAV_FRAME_BODY_FRD to MAV_FRAME_LOCAL_NED (w, x, y, z order, zero-rotation is [1, 0, 0, 0]). (0, 0, 0, 0) for unknown."
         },
         {
           "name": "rates",
           "type": "float[3]",
+          "units": "rad/s",
           "invalid": "[0]",
-          "description": "(0 0 0 for unknown)"
+          "description": "Target angular rates (roll, pitch, yaw) in MAV_FRAME_BODY_FRD frame. (0,0,0) for unknown."
         },
         {
           "name": "position_cov",
