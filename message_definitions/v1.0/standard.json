@@ -113,6 +113,11 @@
           "name": "MAV_AUTOPILOT_FLIX",
           "value": 21,
           "description": "Flix quadcopter - https://quadcopter.dev"
+        },
+        {
+          "name": "MAV_AUTOPILOT_BETAFLIGHT",
+          "value": 22,
+          "description": "Betaflight - https://betaflight.com"
         }
       ]
     },

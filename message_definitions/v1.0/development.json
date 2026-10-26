@@ -113,6 +113,11 @@
           "name": "MAV_AUTOPILOT_FLIX",
           "value": 21,
           "description": "Flix quadcopter - https://quadcopter.dev"
+        },
+        {
+          "name": "MAV_AUTOPILOT_BETAFLIGHT",
+          "value": 22,
+          "description": "Betaflight - https://betaflight.com"
         }
       ]
     },
@@ -5239,18 +5244,18 @@
             {
               "index": "5",
               "label": "Latitude",
-              "description": "Latitudee. 0: not used."
+              "description": "Latitude. 0: not used."
             },
             {
               "index": "6",
               "label": "Longitude",
-              "description": "Longitudee. 0: not used."
+              "description": "Longitude. 0: not used."
             },
             {
               "index": "7",
               "label": "Altitude",
               "units": "m",
-              "description": "Altitudee. 0: not used."
+              "description": "Altitude. 0: not used."
             }
           ]
         },
@@ -14945,6 +14950,7 @@
       "name": "MAV_BATTERY_STATUS_FLAGS",
       "bitmask": "true",
       "description": "Battery status flags for fault, health and state indication.",
+      "wip": true,
       "entries": [
         {
           "name": "MAV_BATTERY_STATUS_FLAGS_NOT_READY_TO_USE",
@@ -15052,6 +15058,7 @@
       "name": "GCS_CONTROL_STATUS_FLAGS",
       "bitmask": "true",
       "description": "CONTROL_STATUS flags.",
+      "wip": true,
       "entries": [
         {
           "name": "GCS_CONTROL_STATUS_FLAGS_SYSTEM_MANAGER",
@@ -15069,6 +15076,7 @@
       "name": "TARGET_ABSOLUTE_SENSOR_CAPABILITY_FLAGS",
       "bitmask": "true",
       "description": "These flags indicate the sensor reporting capabilities for TARGET_ABSOLUTE.",
+      "wip": true,
       "entries": [
         {
           "name": "TARGET_ABSOLUTE_SENSOR_CAPABILITY_POSITION",
@@ -15095,6 +15103,7 @@
     {
       "name": "TARGET_OBS_FRAME",
       "description": "The frame of a target observation from an onboard sensor.",
+      "wip": true,
       "entries": [
         {
           "name": "TARGET_OBS_FRAME_LOCAL_NED",
@@ -15122,6 +15131,7 @@
       "name": "GPS_SYSTEM_ERROR_FLAGS",
       "bitmask": "true",
       "description": "Flags indicating errors in a GPS receiver.",
+      "wip": true,
       "entries": [
         {
           "name": "GPS_SYSTEM_ERROR_INCOMING_CORRECTIONS",
@@ -15163,6 +15173,7 @@
     {
       "name": "GPS_AUTHENTICATION_STATE",
       "description": "Signal authentication state in a GPS receiver.",
+      "wip": true,
       "entries": [
         {
           "name": "GPS_AUTHENTICATION_STATE_UNKNOWN",
@@ -15194,6 +15205,7 @@
     {
       "name": "GPS_JAMMING_STATE",
       "description": "Signal jamming state in a GPS receiver.",
+      "wip": true,
       "entries": [
         {
           "name": "GPS_JAMMING_STATE_UNKNOWN",
@@ -15220,6 +15232,7 @@
     {
       "name": "GPS_SPOOFING_STATE",
       "description": "Signal spoofing state in a GPS receiver.",
+      "wip": true,
       "entries": [
         {
           "name": "GPS_SPOOFING_STATE_UNKNOWN",
@@ -15246,6 +15259,7 @@
     {
       "name": "GPS_RAIM_STATE",
       "description": "State of RAIM processing.",
+      "wip": true,
       "entries": [
         {
           "name": "GPS_RAIM_STATE_UNKNOWN",
@@ -15272,6 +15286,7 @@
     {
       "name": "ACTUATOR_TEST_GROUP",
       "description": "Actuator groups to test in MAV_CMD_ACTUATOR_GROUP_TEST.",
+      "wip": true,
       "entries": [
         {
           "name": "ACTUATOR_TEST_GROUP_ROLL_TORQUE",
@@ -15313,6 +15328,7 @@
     {
       "name": "ESC_FIRMWARE",
       "description": "ESC firmware type identifier.",
+      "wip": true,
       "entries": [
         {
           "name": "ESC_FIRMWARE_UNKNOWN",
@@ -15339,6 +15355,7 @@
     {
       "name": "RANGING_BEACON_ALT_TYPE",
       "description": "Altitude reference for RANGING_BEACON alt field.",
+      "wip": true,
       "entries": [
         {
           "name": "RANGING_BEACON_ALT_TYPE_WGS84",
@@ -15356,6 +15373,7 @@
       "name": "RANGING_BEACON_STATUS_FLAG",
       "bitmask": "true",
       "description": "Status flags for a RANGING_BEACON.",
+      "wip": true,
       "entries": [
         {
           "name": "RANGING_BEACON_STATUS_FLAG_STATION_SIGNAL_POOR",
@@ -15367,6 +15385,7 @@
     {
       "name": "ESTIMATOR_SENSOR_FUSION_SOURCE",
       "description": "Estimator sensor fusion source types. Used in MAV_CMD_ESTIMATOR_SENSOR_ENABLE and as array index in ESTIMATOR_SENSOR_FUSION_STATUS.",
+      "wip": true,
       "entries": [
         {
           "name": "ESTIMATOR_SENSOR_FUSION_SOURCE_GPS",
@@ -15418,6 +15437,7 @@
     {
       "name": "MAV_MANUAL_INPUT_SOURCE",
       "description": "Source of manual control input currently selected by the autopilot's manual control arbitration.",
+      "wip": true,
       "entries": [
         {
           "name": "MAV_MANUAL_INPUT_SOURCE_NONE",
@@ -19167,7 +19187,7 @@
           "name": "coordinate_frame",
           "type": "uint8_t",
           "enum": "MAV_FRAME",
-          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been deprecated)"
+          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been superseded)"
         },
         {
           "name": "type_mask",
@@ -19258,7 +19278,7 @@
           "name": "coordinate_frame",
           "type": "uint8_t",
           "enum": "MAV_FRAME",
-          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been deprecated)"
+          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been superseded)"
         },
         {
           "name": "type_mask",
@@ -28989,6 +29009,7 @@
       "name": "BATTERY_STATUS_V2",
       "id": 369,
       "description": "Battery dynamic information. This should be streamed (nominally at 1Hz). Static/invariant battery information is sent in BATTERY_INFO. Note that smart batteries should set the MAV_BATTERY_STATUS_FLAGS_CAPACITY_RELATIVE_TO_FULL bit to indicate that supplied capacity values are relative to a battery that is known to be full. Power monitors would not set this bit, indicating that capacity_consumed is relative to drone power-on, and that other values are estimated based on the assumption that the battery was full on power-on.",
+      "wip": true,
       "fields": [
         {
           "name": "id",
@@ -29050,6 +29071,7 @@
       "name": "GROUP_START",
       "id": 414,
       "description": "Emitted during mission execution when control reaches MAV_CMD_GROUP_START.",
+      "wip": true,
       "fields": [
         {
           "name": "group_id",
@@ -29073,6 +29095,7 @@
       "name": "GROUP_END",
       "id": 415,
       "description": "Emitted during mission execution when control reaches MAV_CMD_GROUP_END.",
+      "wip": true,
       "fields": [
         {
           "name": "group_id",
@@ -29127,6 +29150,7 @@
       "name": "GNSS_INTEGRITY",
       "id": 441,
       "description": "Information about key components of GNSS receivers, like signal authentication, interference and system errors.",
+      "wip": true,
       "fields": [
         {
           "name": "id",
@@ -29216,6 +29240,7 @@
       "name": "TARGET_ABSOLUTE",
       "id": 510,
       "description": "Current motion information from sensors on a target",
+      "wip": true,
       "fields": [
         {
           "name": "timestamp",
@@ -29303,6 +29328,7 @@
       "name": "TARGET_RELATIVE",
       "id": 511,
       "description": "The location of a target measured by MAV's onboard sensors.",
+      "wip": true,
       "fields": [
         {
           "name": "timestamp",
@@ -29374,6 +29400,7 @@
       "name": "CONTROL_STATUS",
       "id": 512,
       "description": "Information about GCS(s) in control of this MAV. This should be broadcast at low rate (nominally 1 Hz) and emitted when ownership or takeover status change. Components in the system should only accept \"state changing commands/messages\" from any system id in `gcs_main` or `gcs_secondary`. - In single-owner mode there is a single GCS that can send \"state changing commands/messages\" listed in `gcs_main` (`gcs_secondary` must be set to all-zero). - In multi-owner mode, all GCS with ids in `gcs_main` and `gcs_secondary` can send \"state changing commands/messages\". However `gcs_main` is the only GCS that can perform \"special controlled operations\" such as manual control. - Control over ownership of the `gcs_main` role is requested using MAV_CMD_REQUEST_OPERATOR_CONTROL. - GCS in `gcs_secondary` are set by the flight stack (cannot be set by this mechanism). It should only include IDs for connected GCS. If more than 11 GCS are in control and visible, the flight stack will at most be able to publish 11.",
+      "wip": true,
       "fields": [
         {
           "name": "flags",
@@ -29399,6 +29426,7 @@
       "name": "ESC_EEPROM",
       "id": 292,
       "description": "ESC EEPROM data message for reading and writing ESC configuration. Supports multiple ESC firmware types including AM32, Bluejay, and BLHeli32. ESC data is read by sending the MAV_CMD_REQUEST_MESSAGE with `param1=292` and `param2=esc_index`, where esc_index is the zero-indexed ESC number for the corresponding motor, and 255 is used to request data for all ESC. The message can be sent to set the ESC value. For write requests, a bitmask allows selective writing of specific bytes to avoid corrupting unchanged values. The data format is opaque to the autopilot. A GCS is required to understand the format in order to create an appropriate UI for display and setting configuration values, and to inform users when the ESC uses an unsupported data format. Note that for AM32 EEPROMs the data layout is defined in: https://github.com/am32-firmware/AM32/blob/main/Inc/eeprom.h (the second byte in the structure is the eeprom_version). The firmware field indicates which ESC firmware is in use, allowing the GCS to interpret the data correctly.",
+      "wip": true,
       "fields": [
         {
           "name": "target_system",
@@ -29557,6 +29585,7 @@
       "name": "ESTIMATOR_SENSOR_FUSION_STATUS",
       "id": 514,
       "description": "Status of estimator sensor fusion sources. Each array is indexed by ESTIMATOR_SENSOR_FUSION_SOURCE - 1. Each element is a per-instance bitmask (bit 0 = instance 0, etc.). For single-instance sources only bit 0 is used. For multi-instance sources like AGP, multiple bits may be set.",
+      "wip": true,
       "fields": [
         {
           "name": "intended",

@@ -113,6 +113,11 @@
           "name": "MAV_AUTOPILOT_FLIX",
           "value": 21,
           "description": "Flix quadcopter - https://quadcopter.dev"
+        },
+        {
+          "name": "MAV_AUTOPILOT_BETAFLIGHT",
+          "value": 22,
+          "description": "Betaflight - https://betaflight.com"
         }
       ]
     },
@@ -5239,18 +5244,18 @@
             {
               "index": "5",
               "label": "Latitude",
-              "description": "Latitudee. 0: not used."
+              "description": "Latitude. 0: not used."
             },
             {
               "index": "6",
               "label": "Longitude",
-              "description": "Longitudee. 0: not used."
+              "description": "Longitude. 0: not used."
             },
             {
               "index": "7",
               "label": "Altitude",
               "units": "m",
-              "description": "Altitudee. 0: not used."
+              "description": "Altitude. 0: not used."
             }
           ]
         },
@@ -20822,7 +20827,7 @@
           "name": "coordinate_frame",
           "type": "uint8_t",
           "enum": "MAV_FRAME",
-          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been deprecated)"
+          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been superseded)"
         },
         {
           "name": "type_mask",
@@ -20913,7 +20918,7 @@
           "name": "coordinate_frame",
           "type": "uint8_t",
           "enum": "MAV_FRAME",
-          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been deprecated)"
+          "description": "Valid options are: MAV_FRAME_GLOBAL = 0, MAV_FRAME_GLOBAL_RELATIVE_ALT = 3, MAV_FRAME_GLOBAL_TERRAIN_ALT = 10 (MAV_FRAME_GLOBAL_INT, MAV_FRAME_GLOBAL_RELATIVE_ALT_INT, MAV_FRAME_GLOBAL_TERRAIN_ALT_INT are allowed synonyms, but have been superseded)"
         },
         {
           "name": "type_mask",
