@@ -1649,7 +1649,7 @@
         {
           "name": "MAV_SYS_STATUS_SENSOR_MOTOR_OUTPUTS",
           "value": 32768,
-          "description": "0x8000 motor outputs / control"
+          "description": "0x8000 Motor outputs enabled (safety off). Enabled if motor outputs are not inhibited by a safety switch. The health bit for this sensor is not used and should always be set (report ESC, motor and propeller health using MAV_SYS_STATUS_SENSOR_PROPULSION)."
         },
         {
           "name": "MAV_SYS_STATUS_SENSOR_RC_RECEIVER",
